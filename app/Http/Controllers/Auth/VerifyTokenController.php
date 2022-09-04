@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use App\Providers\RouteServiceProvider;
 
 class VerifyTokenController extends Controller
 {
@@ -20,6 +21,6 @@ class VerifyTokenController extends Controller
         abort_unless($request->hasValidSignature() && $token->isValid(), 401);
         $token->consume();
         Auth::login($token->user);
-        return redirect('/');
+        return redirect(RouteServiceProvider::HOME);
     }
 }
