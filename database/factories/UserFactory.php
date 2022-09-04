@@ -18,7 +18,8 @@ class UserFactory extends Factory
     public function definition()
     {
         return [
-            'name' => fake()->name(),
+            'firstname' => fake()->firstname(),
+            'lastname' => fake()->lastname(),
             'email' => fake()->safeEmail(),
             'email_verified_at' => now(),
             'remember_token' => Str::random(10),
