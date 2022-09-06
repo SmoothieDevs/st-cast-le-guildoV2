@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,8 +18,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/home', function () {
-    return view('home');
-})->middleware(['auth', 'verified'])->name('home');
+Route::get('dashboard', [UserController::class, 'dashboard'])->middleware(['auth', 'verified'])->name('dashboard');
 
 require __DIR__.'/auth.php';
