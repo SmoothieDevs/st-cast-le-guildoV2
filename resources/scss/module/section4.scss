@@ -1,0 +1,93 @@
+section.section4{
+    position: relative;
+    z-index: 50;
+    padding-bottom: 90px;
+    padding-top: 300px;
+    background-color: white;
+
+    .wrapper {
+        display: flex;
+        width: 100%;
+        flex-direction: row;
+        padding-bottom: 80px;
+    }
+
+    .wrapper-top {
+        display: flex;
+        width: 100%;
+        flex-direction: row;
+        justify-content: center;
+        margin-bottom: 150px;
+        h2{
+            text-align: center;
+            padding-bottom: 15px;
+            position: relative;
+            &::after {
+                content: "";
+                position: absolute;
+                bottom: 0;
+                left: 50%;
+                transform: translateX(-50%);
+                height: 2px;
+                width: 200px;
+                background-color: $color1;
+            }
+        }
+    }
+
+    .wrapper-right {
+        width: 50%;
+        padding-left: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .title{
+        margin-bottom: 30px;
+    }
+
+    .description{
+        max-width: 500px;
+        p{
+            font-style: italic;
+        }
+    }
+
+    .wrapper-left {
+        width: 50%;
+        padding-right: 20px;
+        figure {
+            position: relative;
+        }
+
+        .item {
+            overflow: hidden;
+            position: relative;
+            &#item-1 {
+                max-width: 600px;
+                height: auto;
+                top: -100px;
+                transform: translateY(40%) rotate(-9deg);
+            }
+
+            &#item-2 {
+                position: absolute;
+                max-width: 300px;
+                height: auto;
+                right: 50px;
+                bottom: 70px;
+                transform: translateY(100%) rotate(15deg);
+            }
+
+            &#item-3 {
+                position: absolute;
+                max-width: 455px;
+                height: auto;
+                left: -180px;
+                bottom: -40px;
+                transform: translateY(60%) rotate(-12deg);
+            }
+        }
+    }
+}
