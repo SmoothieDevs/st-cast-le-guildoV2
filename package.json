@@ -1,4 +1,7 @@
 {
+    "name": "st-cast-le-guildo",
+    "version": "1.0.0",
+    "description": "Site de réservation",
     "private": true,
     "scripts": {
         "dev": "vite",
@@ -11,5 +14,9 @@
         "postcss": "^8.1.14",
         "sass": "^1.54.6",
         "vite": "^3.0.0"
+    },
+    "dependencies": {
+        "gsap": "^3.11.1",
+        "siema": "^1.5.1"
     }
 }
