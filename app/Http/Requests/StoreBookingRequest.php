@@ -49,6 +49,11 @@ class StoreBookingRequest extends FormRequest
             // La relation renvoie une réservation annulée => autorisation de la remplacer
             $this->user()->booking->delete();
             return;
+        } elseif ($this->user()->booking->end < now()) {
+            // La relation renvoie une réservation passée => autorisation d'en créer une nouvelle
+            $this->user()->booking->status = BookingStatus::Finished;
+            $this->user()->booking->save();
+            return;
         }
 
         // Il existe une réservation en cours => levée d'une erreur
