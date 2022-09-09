@@ -8,6 +8,7 @@ enum BookingStatus: string
     case PaidFor = 'paid_for';
     case Confirmed = 'confirmed';
     case Cancelled  = 'cancelled';
+    case Finished = 'finished';
 
     public static function getValues(): array
     {

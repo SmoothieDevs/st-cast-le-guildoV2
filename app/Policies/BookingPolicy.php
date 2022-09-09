@@ -2,8 +2,9 @@
 
 namespace App\Policies;
 
-use App\Models\Booking;
 use App\Models\User;
+use App\Models\Booking;
+use App\Enums\BookingStatus;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class BookingPolicy
@@ -30,6 +31,6 @@ class BookingPolicy
      */
     public function update(User $user, Booking $booking)
     {
-        return $user->id === $booking->user_id;
+        return $user->id === $booking->user_id && $booking->status != BookingStatus::Finished;
     }
 }

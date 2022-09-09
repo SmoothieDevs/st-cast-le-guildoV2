@@ -25,6 +25,18 @@
     @endif
 </div>
 
+@if(isset($finishedBookings))
+<div>
+    <p>Réservations passées :</p>
+    @foreach($finishedBookings as $finishedBooking)
+    <div style="border: solid;padding: 10px;margin: 10px;">
+        <p>Du {{ $finishedBooking->start->format('Y-m-d') }} au {{ $finishedBooking->end->format('Y-m-d') }}</p>
+        <p>Nombre de personnes : {{ $finishedBooking->nb_people }}</p>
+    </div>
+    @endforeach
+</div>
+@endif
+
 <form method="POST" action="{{ route('logout') }}">
     @csrf
 

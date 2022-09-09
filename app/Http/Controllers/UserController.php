@@ -13,6 +13,9 @@ class UserController extends Controller
      */
     public function dashboard()
     {
-        return view('dashboard')->with('booking', auth()->user()->booking);
+        $booking =  auth()->user()->booking;
+        $finishedBookings = auth()->user()->finishedBookings;
+
+        return view('dashboard')->with(compact('booking', 'finishedBookings'));
     }
 }
