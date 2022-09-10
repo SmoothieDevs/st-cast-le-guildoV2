@@ -29,7 +29,7 @@
         <button>Se connecter</button>
     </form>
     @else
-    <p>Si votre adresse figure dans notre base de donnée nous lui avons envoyé un mail.</p>
+    <p>Nous venons d'envoyer un mail de connexion à cette adresse.</p>
     <p>Veuillez cliquer sur le lien dans ce mail pour terminer votre connexion.</p>
     @endif
 </body>
