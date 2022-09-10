@@ -28,6 +28,8 @@ class AuthenticatedSessionController extends Controller
      */
     public function store(LoginRequest $request)
     {
+        // Assurance que l'utilisateur n'a pas trop de tentatives de connexion
+        $request->ensureIsNotRateLimited();
         $user = User::whereEmail($request->get('email'))->first();
         if ($user) {
             $user->sendLoginLink();
