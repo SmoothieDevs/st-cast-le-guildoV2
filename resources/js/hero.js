@@ -4,8 +4,9 @@ gsap.registerPlugin(ScrollTrigger);
 
 document.addEventListener("DOMContentLoaded", function () {
 
+  let hero = document.querySelector("section.hero-section")
   let tl = gsap.timeline();
-  let items = document.querySelectorAll('.section1 .item');
+  let items = document.querySelectorAll('.item');
   let mainLogo = document.querySelector(".main-logo");
   let tlMainLogo = gsap.timeline({ paused: true });
 
@@ -90,22 +91,21 @@ document.addEventListener("DOMContentLoaded", function () {
   let BlackTransitionBottomValue = getBlackTransitionBottomValue();
 
   function scrollFunction() {
-
     let currentScroll = document.documentElement.scrollTop || document.body.scrollTop; // Get Current Scroll Value
     if (currentScroll > 0 && lastScroll <= currentScroll) {
       lastScroll = currentScroll;
       console.log("DOWN");
       if (actualNavColor == 1) {
         WhiteTransitionTopValue.forEach((elem, index) => {
-          if (document.documentElement.scrollTop + 100  > elem && document.documentElement.scrollTop < elem + 300) {
+          if (document.documentElement.scrollTop + 100 > elem && document.documentElement.scrollTop < elem + 300) {
             mainLogo.classList.remove("black")
             station.classList.remove("black")
             actualNavColor = 0
           }
         })
-      }else{
+      } else {
         BlackTransitionTopValue.forEach(elem => {
-          if (document.documentElement.scrollTop+ 100  > elem && document.documentElement.scrollTop < elem + 300) {
+          if (document.documentElement.scrollTop + 100 > elem && document.documentElement.scrollTop < elem + 300) {
             mainLogo.classList.add("black")
             station.classList.add("black")
             actualNavColor = 1
@@ -118,15 +118,15 @@ document.addEventListener("DOMContentLoaded", function () {
       console.log("UP");
       if (actualNavColor == 1) {
         WhiteTransitionBottomValue.forEach(elem => {
-          if (document.documentElement.scrollTop< elem && document.documentElement.scrollTop > elem - 300) {
+          if (document.documentElement.scrollTop < elem && document.documentElement.scrollTop > elem - 300) {
             mainLogo.classList.remove("black")
             station.classList.remove("black")
             actualNavColor = 0
           }
         })
-      }else{
+      } else {
         BlackTransitionBottomValue.forEach(elem => {
-          if (document.documentElement.scrollTop< elem && document.documentElement.scrollTop > elem - 300) {
+          if (document.documentElement.scrollTop < elem && document.documentElement.scrollTop > elem - 300) {
             mainLogo.classList.add("black")
             station.classList.add("black")
             actualNavColor = 1
@@ -138,6 +138,10 @@ document.addEventListener("DOMContentLoaded", function () {
       tlMainLogo.play();
     } else {
       tlMainLogo.reverse();
+      hero.classList.remove("hide")
+    }
+    if (document.body.scrollTop > 2000 || document.documentElement.scrollTop > 2000) {
+      hero.classList.add("hide")
     }
   }
   window.onscroll = function () { scrollFunction() };

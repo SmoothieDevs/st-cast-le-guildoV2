@@ -10,9 +10,16 @@
     font-style: italic;
     font-weight: 300;
     font-size: 20px;
-    line-height: 100%;
+    
     color: $color1;
     &:visited,&:focus{
         color: $color1; 
+    }
+    &.ghost{
+        color: white;
+        border: 1px solid white;
+        &:visited,&:focus{
+            color: white; 
+        }
     }
 }

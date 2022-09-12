@@ -1,23 +1,29 @@
 .hero-section {
     position: fixed;
     width: 100%;
-    z-index: 5;
+    z-index: 1;
     height: 100%;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
+    &.hide{
+        z-index: -1;
+    }
     .bg-img {
-        background-image: url("./../../../storage/app/images/st-cast/St-Cast-Hero.jpg");
+        /* background-image: url("./../../../storage/app/images/st-cast/St-Cast-Hero.jpg"); */
         background-size: cover;
         background-position: 50%;
         background-repeat: no-repeat;
         height: 100%;
+        object-fit: cover;
         left: 0;
+        z-index: 0;
         position: absolute;
         top: 0;
         width: 100%;
         transform: scale(1.2,1.2);
+        pointer-events: none;
         &::after{
             content: '';
             position: absolute;
@@ -26,9 +32,6 @@
             top: 0;
             left: 0;
             background-color: rgba(26, 26, 26, 0.3);
-        }
-        img {
-            display: none;
         }
     }
 }

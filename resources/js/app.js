@@ -10,6 +10,7 @@ import { MotionPathPlugin } from "gsap/MotionPathPlugin";
 import { PixiPlugin } from "gsap/PixiPlugin";
 import { TextPlugin } from "gsap/TextPlugin";
  import Splitting from "splitting"; */
-import "./hero.js";
 import "./weatherAPI.js";
+import "./hero.js";
 import "./section2";
+import "./footer";
