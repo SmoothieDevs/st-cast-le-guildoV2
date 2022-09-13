@@ -6,21 +6,43 @@
     padding: 0;
 }
 
-html{
+html {
     scroll-behavior: smooth;
 }
 
 body {
     position: relative;
     scroll-behavior: smooth;
+
     .body {
         height: auto;
         min-height: 100%;
         overflow: hidden;
         position: relative;
-        
+
         width: 100%;
         z-index: 0;
+    }
+
+    &.black {
+        .main-logo {
+            a {
+                color: $color2;
+
+                span:first-child {
+                    color: $color2;
+                }
+
+                span:last-child {
+                    color: $color2;
+                }
+            }
+        }
+
+        .station {
+            color: $color2;
+        }
+
     }
 }
 
@@ -33,6 +55,7 @@ main {
     z-index: 1;
     margin-bottom: var(--footer);
     margin-top: 100vh;
+
     .inner-main {
         margin-top: 100vh;
         overflow: visible;
@@ -45,103 +68,92 @@ a {
     text-decoration: none;
 }
 
-.main-logo {
-    z-index: 999;
-    left: 50%;
-    position: fixed;
-    top: 35%;
-    transform: translate3d(-50%, -50%, 0);
-    text-align: center;
+body {
+    .main-logo {
+        z-index: 999;
+        left: 50%;
+        position: fixed;
+        top: 35%;
+        transform: translate3d(-50%, -50%, 0);
+        text-align: center;
 
-    a {
-        color: white;
-        display: flex;
-        flex-direction: column;
-        transition: color ease-in-out .5s;
-
-        span:first-child {
-            font-family: $font1;
-            font-size: 120px;
-            font-weight: 400;
-            line-height: 110%;
-            letter-spacing: 0em;
-            text-align: center;
-            transform: translate(0, 30px);
-            opacity: 0;
-            transition: color ease-in-out .5s;
-        }
-
-        span:last-child {
-            font-family: $font1;
-            font-size: 60px;
-            font-weight: 500;
-            transform: translate(0, 25px);
-            line-height: 110%;
-            letter-spacing: 0em;
-            text-align: center;
-            opacity: 0;
-            transition: color ease-in-out .5s;
-        }
-    }
-
-    &.black {
         a {
-            color: $color2;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            transition: color ease-in-out .5s;
 
             span:first-child {
-                color: $color2;
+                font-family: $font1;
+                font-size: 120px;
+                font-weight: 400;
+                line-height: 110%;
+                letter-spacing: 0em;
+                text-align: center;
+                transform: translate(0, 30px);
+                opacity: 0;
+                transition: color ease-in-out .5s;
             }
 
             span:last-child {
-                color: $color2;
+                font-family: $font1;
+                font-size: 60px;
+                font-weight: 500;
+                transform: translate(0, 25px);
+                line-height: 110%;
+                letter-spacing: 0em;
+                text-align: center;
+                opacity: 0;
+                transition: color ease-in-out .5s;
+            }
+        }
+    }
+
+    .station {
+        left: 6.5rem;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        text-transform: uppercase;
+        position: fixed;
+        font-size: 12px;
+        font-weight: 550;
+        line-height: 16px;
+        z-index: 999;
+        color: white;
+        top: 3rem;
+        font-family: $font2;
+        transition: color ease-in-out .5s;
+
+        .lieu {
+            font-size: 12px;
+            font-weight: 550;
+            line-height: 16px;
+
+            span {
+
+                transform: translate3d(0, -10px, 0);
+                font-size: 12px;
+                font-weight: 700;
+                line-height: 16px;
+                padding-left: 0.5rem;
+                padding-right: 0.5rem;
+            }
+        }
+
+        .temperature {
+            span {
+                transform: translate3d(0, -10px, 0);
+                font-size: 12px;
+                font-weight: 700;
+                line-height: 16px;
+                padding-left: 0.5rem;
+                padding-right: 0.5rem;
             }
         }
     }
 }
 
-.station {
-    left: 6.5rem;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    text-transform: uppercase;
-    position: fixed;
-    font-size: 12px;
-    font-weight: 550;
-    line-height: 16px;
-    z-index: 999;
-    color: white;
-    top: 3rem;
-    font-family: $font2;
-    transition: color ease-in-out .5s;
-    &.black{
-        color: $color2;
-    }
-    .lieu {
-        font-size: 12px;
-        font-weight: 550;
-        line-height: 16px;
-        span {
-            
-            transform: translate3d(0, -10px, 0);
-            font-size: 12px;
-            font-weight: 700;
-            line-height: 16px;
-            padding-left: 0.5rem;
-            padding-right: 0.5rem;
-        }
-    }
-    .temperature{
-        span {
-            transform: translate3d(0, -10px, 0);
-            font-size: 12px;
-            font-weight: 700;
-            line-height: 16px;
-            padding-left: 0.5rem;
-            padding-right: 0.5rem;
-        }
-    }
-}
 
 .main-page {
     overflow: hidden;

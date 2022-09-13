@@ -122,8 +122,8 @@
             <div class="wrapper">
               <div class="wrapper-left">
                 <figure id="figure-2">
-                  <img id="item-4" loading="lazy" class="item" data-transform="translate(0,-100px) rotate(2.3deg)" src="{{ asset('images/st-cast/Appartement1.jpg')}}" alt="Image du port">
-                  <img id="item-5" loading="lazy" class="item" data-transform="translate(0,-100px) rotate(-9.3deg)" src="{{ asset('images/st-cast/Appartement2.jpg')}}" alt="La mer">
+                  <img id="item-4" loading="lazy" class="item" data-transform="translate(0,-330px) rotate(2.3deg)" src="{{ asset('images/st-cast/Appartement1.jpg')}}" alt="Image du port">
+                  <img id="item-5" loading="lazy" class="item" data-transform="translate(0,-330px) rotate(-9.3deg)" src="{{ asset('images/st-cast/Appartement2.jpg')}}" alt="La mer">
                 </figure>
               </div>
               <div class="wrapper-right">
