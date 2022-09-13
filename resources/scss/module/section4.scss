@@ -1,6 +1,5 @@
 section.section4{
     position: relative;
-    z-index: 50;
     padding-bottom: 90px;
     padding-top: 300px;
     background-color: white;
@@ -59,34 +58,27 @@ section.section4{
         padding-right: 20px;
         figure {
             position: relative;
+            z-index: 55;
         }
 
         .item {
             overflow: hidden;
             position: relative;
-            &#item-1 {
+            &#item-4 {
                 max-width: 600px;
                 height: auto;
-                top: -100px;
+                left: 50px;
+                top: 50px;
                 transform: translateY(40%) rotate(-9deg);
             }
 
-            &#item-2 {
+            &#item-5 {
                 position: absolute;
                 max-width: 300px;
                 height: auto;
                 right: 50px;
-                bottom: 70px;
+                bottom: -180px;
                 transform: translateY(100%) rotate(15deg);
-            }
-
-            &#item-3 {
-                position: absolute;
-                max-width: 455px;
-                height: auto;
-                left: -180px;
-                bottom: -40px;
-                transform: translateY(60%) rotate(-12deg);
             }
         }
     }

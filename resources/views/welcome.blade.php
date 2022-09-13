@@ -8,31 +8,31 @@
   @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/scss/app.scss'])
 </head>
 
-<body>
+<body id="body">
   <div class="body">
-    <div class="main-logo">
-      <h1>
-        <a href="/">
-          <span class="sup">St Cast</span>
-          <span class="sub">Le Guildo</span>
-      </h1>
-      </a>
-    </div>
-    <div class="station">
-      <span class="icon"></span>
-      <time class="time"></time>
-      <p class="lieu"><span>|</span></p>
-    </div>
-    <button class="btn-menu">
+  <div class="main-logo">
+        <h1>
+          <a href="/">
+            <span class="sup">Cézembre</span>
+            <span class="sub">Le Guildo</span>
+        </h1>
+        </a>
+      </div>
+      <div class="station">
+        <span class="icon"></span>
+        <time class="time"></time>
+        <p class="lieu"><span>|</span></p>
+        <p class="temperature"><span>|</span></p>
 
-    </button>
-    <main>
+      </div>
+      <button class="btn-menu">
+
+      </button>
       <div class="inner-main">
         <section id="section-hero" class="hero-section" data-color="white">
-          <div class="bg-img">
-
-          </div>
+          <img class="bg-img" src="{{ asset('images/st-cast/St-Cast-Hero.jpg')}}">
       </div>
+    <main>
       <div class="main-page">
         <section id="section1" class="section1" data-color="black">
           <div class="container">
@@ -121,9 +121,9 @@
             </div>
             <div class="wrapper">
               <div class="wrapper-left">
-                <figure id="figure-1">
-                  <img id="item-1" loading="lazy" class="item" data-transform="translate(0,-20%) rotate(2.3deg)" src="{{ asset('images/st-cast/Appartement1.jpg')}}" alt="Image du port">
-                  <img id="item-2" loading="lazy" class="item" data-transform="translate(0,-20%) rotate(-9.3deg)" src="{{ asset('images/st-cast/Appartement2.jpg')}}" alt="La mer">
+                <figure id="figure-2">
+                  <img id="item-4" loading="lazy" class="item" data-transform="translate(0,-100px) rotate(2.3deg)" src="{{ asset('images/st-cast/Appartement1.jpg')}}" alt="Image du port">
+                  <img id="item-5" loading="lazy" class="item" data-transform="translate(0,-100px) rotate(-9.3deg)" src="{{ asset('images/st-cast/Appartement2.jpg')}}" alt="La mer">
                 </figure>
               </div>
               <div class="wrapper-right">
@@ -140,9 +140,80 @@
             </div>
           </div>
         </section>
+        <section id="section5" class="section5" data-color="black">
+          <div class="container">
+            <div class="wrapper">
+              <div class="wrapper-left">
+                <div class="title">
+                  <h3 class="bar">Caractéristiques</h3>
+                </div>
+                <div class="caracteristique">
+                  <ul>
+                    <li><span class="wc">Double WC</span></li>
+                    <li><span class="frigo">Frigo et Congélateur</span></li>
+                    <li><span class="vaisselle">Lave vaisselle</span></li>
+                    <li><span class="bouilloire">Bouilloire</span></li>
+                  </ul>
+                  <ul>
+                    <li><span class="linge">Lave linge</span></li>
+                    <li><span class="télé">Télévision</span></li>
+                    <li><span class="ondes">Micro-ondes</span></li>
+                    <li><span class="four">Four</span></li>
+                  </ul>
+                  <ul>
+                    <li><span class="internet">Pas de connexion internet</span></li>
+                    <li><span class="balcon">Balcon-Terasse orienté vers la mer</span></li>
+                    <li><span class="garage">Garage Privé</span></li>
+                    <li><span class="porte">Porte Sécurisé</span></li>
+                  </ul>
+                </div>
+
+              </div>
+              <div class="wrapper-right">
+                <figure id="figure-3">
+                  <img id="item-6" loading="lazy" class="item" data-transform="translate(0,-150px) rotate(-2.8deg)" src="{{ asset('images/st-cast/Appartement3.jpg')}}" alt="Image du port">
+                  <img id="item-7" loading="lazy" class="item" data-transform="translate(0,-150px) rotate(1deg)" src="{{ asset('images/st-cast/Appartement4.jpg')}}" alt="La mer">
+                </figure>
+              </div>
+            </div>
+        </section>
+        <section id="section6" class="section6" data-color="white">
+          <div class="container-s">
+            <div class="wrapper">
+              <div class="wrapper-top">
+                <div class="title">
+                  <h3>Une question ? Une envie de réserver ?</h3>
+                </div>
+              </div>
+              <div class="wrapper-left">
+                <p class="description">Vous pouvez nous contacter par mail ou par téléphone</p>
+              </div>
+              <div class="wrapper-right">
+                <a class="btn ghost">Nous contacter</a>
+              </div>
+            </div>
+          </div>
+        </section>
       </div>
-  </div>
-  </main>
+    </main>
+    <footer>
+      <div class="container">
+        <div class="wrapper">
+          <div class="title">
+            <span>St Cast</span>
+            <span>Le Guildo</span>
+          </div>
+          <ul>
+            <li class="mentions"><a href="/">Mentions légales</a></li>
+            <li class="reglement"><a href="/">Règlement intérieur</a></li>
+            <li class="conditions"><a href="/">Conditions générales de vente</a></li>
+          </ul>
+          <a href="#body" class="top"></a>
+          <address><span>Téléphone : </span><a href="tel:+33660739864">+33 6 60 73 98 64</a></address>
+          <p class="copyright">Fait avec <span></span> par Will</p>
+        </div>
+      </div>
+    </footer>
   </div>
 </body>
 
