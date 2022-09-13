@@ -98,16 +98,15 @@ document.addEventListener("DOMContentLoaded", function () {
       if (actualNavColor == 1) {
         WhiteTransitionTopValue.forEach((elem, index) => {
           if (document.documentElement.scrollTop + 100 > elem && document.documentElement.scrollTop < elem + 300) {
-            mainLogo.classList.remove("black")
-            station.classList.remove("black")
+            document.body.classList.remove("black")
+            
             actualNavColor = 0
           }
         })
       } else {
         BlackTransitionTopValue.forEach(elem => {
           if (document.documentElement.scrollTop + 100 > elem && document.documentElement.scrollTop < elem + 300) {
-            mainLogo.classList.add("black")
-            station.classList.add("black")
+            document.body.classList.add("black")
             actualNavColor = 1
           }
         })
@@ -119,16 +118,14 @@ document.addEventListener("DOMContentLoaded", function () {
       if (actualNavColor == 1) {
         WhiteTransitionBottomValue.forEach(elem => {
           if (document.documentElement.scrollTop < elem && document.documentElement.scrollTop > elem - 300) {
-            mainLogo.classList.remove("black")
-            station.classList.remove("black")
+            document.body.classList.remove("black")
             actualNavColor = 0
           }
         })
       } else {
         BlackTransitionBottomValue.forEach(elem => {
           if (document.documentElement.scrollTop < elem && document.documentElement.scrollTop > elem - 300) {
-            mainLogo.classList.add("black")
-            station.classList.add("black")
+            document.body.classList.add("black")
             actualNavColor = 1
           }
         })
