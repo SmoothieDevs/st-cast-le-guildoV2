@@ -66,7 +66,8 @@ class BookingController extends Controller
 
         // Vérification de l'absence d'une réservation en cours
         $request->ensureDoesNotHaveActiveBooking();
-        // TODO Ajout de la vérification de la disponibilité des dates
+        // Vérification de la disponibilité des dates
+        $request->ensureDatesAreAvailable();
         // Création de la réservation
         $request->user()->booking()->create($validated);
 

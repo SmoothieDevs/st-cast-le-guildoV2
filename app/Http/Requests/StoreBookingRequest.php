@@ -39,8 +39,7 @@ class StoreBookingRequest extends FormRequest
     /**
      * Assure que l'utilisateur n'a pas déjà une réservation en cours.
      *
-     * @return null|Booking renvoie null si aucune réservation n'est en cours, sinon on renvoie la réservation trouvée
-     *
+     * @return null
      * @throws \Illuminate\Validation\ValidationException
      */
     public function ensureDoesNotHaveActiveBooking()
@@ -59,5 +58,26 @@ class StoreBookingRequest extends FormRequest
         throw ValidationException::withMessages([
             'user_id' => 'Vous avez déjà une réservation en cours.'
         ]);
+    }
+
+    /**
+     * Assure que les dates sélectionnées sont disponibles.
+     *
+     * @return null
+     * @throws \Illuminate\Validation\ValidationException
+     */
+    public function ensureDatesAreAvailable()
+    {
+        // Obtention de toutes les réservations actives terminant après le début de la réservation, ou commençant avant la fin de la réservation
+        $bookings = Booking::where('end', '>=', $this->start)
+            ->where('start', '<=', $this->end)
+            ->get();
+
+        // Il existe au moins une réservation avec des dates en conflit => levée d'une erreur
+        if ($bookings->count() > 0) {
+            throw ValidationException::withMessages([
+                'start' => 'Les dates demandées ne sont pas disponibles.'
+            ]);
+        }
     }
 }
