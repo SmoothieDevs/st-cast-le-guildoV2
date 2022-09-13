@@ -138,10 +138,12 @@ document.addEventListener("DOMContentLoaded", function () {
       tlMainLogo.play();
     } else {
       tlMainLogo.reverse();
-      hero.classList.remove("hide")
+      
     }
     if (document.body.scrollTop > 2000 || document.documentElement.scrollTop > 2000) {
       hero.classList.add("hide")
+    }else{
+      hero.classList.remove("hide")
     }
   }
   window.onscroll = function () { scrollFunction() };

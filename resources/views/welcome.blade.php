@@ -13,7 +13,7 @@
   <div class="main-logo">
         <h1>
           <a href="/">
-            <span class="sup">St Cast</span>
+            <span class="sup">Cézembre</span>
             <span class="sub">Le Guildo</span>
         </h1>
         </a>
@@ -30,8 +30,7 @@
       </button>
       <div class="inner-main">
         <section id="section-hero" class="hero-section" data-color="white">
-          <video class="bg-img" loop autoplay>
-            <source src="{{ asset('images/Sea.mp4')}}" type="video/mp4">
+          <img class="bg-img" src="{{ asset('images/st-cast/St-Cast-Hero.jpg')}}">
       </div>
     <main>
       <div class="main-page">
