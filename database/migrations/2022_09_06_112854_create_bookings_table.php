@@ -20,7 +20,7 @@ return new class extends Migration
             $table->date('start');
             $table->date('end');
             $table->integer('nb_people');
-            $table->enum('status', BookingStatus::getValues())->default(BookingStatus::NeedPayment->value);
+            $table->enum('status', BookingStatus::values());
             $table->timestamps();
             $table->softDeletes();
         });

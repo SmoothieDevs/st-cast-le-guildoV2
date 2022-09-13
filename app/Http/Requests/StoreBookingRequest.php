@@ -30,6 +30,9 @@ class StoreBookingRequest extends FormRequest
             'start' => 'required|date',
             'end' => 'required|date|after_or_equal:start',
             'nb_people' => 'required|integer|min:1',
+            'email' => 'email|string|max:255|unique:users',
+            'firstname' => 'string|max:255|required_with:email',
+            'lastname' => 'string|max:255|required_with:email',
         ];
     }
 
@@ -44,10 +47,6 @@ class StoreBookingRequest extends FormRequest
     {
         if (!$this->user()->booking) {
             // La relation renvoie null => pas de réservation en cours
-            return;
-        } elseif ($this->user()->booking->status === BookingStatus::Cancelled) {
-            // La relation renvoie une réservation annulée => autorisation de la remplacer
-            $this->user()->booking->delete();
             return;
         } elseif ($this->user()->booking->end < now()) {
             // La relation renvoie une réservation passée => autorisation d'en créer une nouvelle

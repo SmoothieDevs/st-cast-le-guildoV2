@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Booking;
 use App\Enums\BookingStatus;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Auth\Events\Registered;
 use App\Http\Resources\BookingResource;
 use App\Providers\RouteServiceProvider;
 use App\Http\Requests\StoreBookingRequest;
@@ -13,6 +16,7 @@ class BookingController extends Controller
 {
     public function __construct()
     {
+        $this->middleware('verified')->except('create', 'store');
         $this->authorizeResource(Booking::class);
     }
 
@@ -46,8 +50,24 @@ class BookingController extends Controller
     public function store(StoreBookingRequest $request)
     {
         $validated = $request->validated();
-        $request->ensureDoesNotHaveActiveBooking();
 
+        if (auth()->user() === null && !empty($validated['email'])) {
+            // Création d'un nouvel utilisateur avec les informations fournies
+            $user = User::create([
+                'firstname' => $validated['firstname'],
+                'lastname' => $validated['lastname'],
+                'email' => $validated['email']
+            ]);
+            $validated['user_id'] = $user->id;
+            event(new Registered($user));
+            // Connexion de l'utilisateur
+            Auth::login($user);
+        }
+
+        // Vérification de l'absence d'une réservation en cours
+        $request->ensureDoesNotHaveActiveBooking();
+        // TODO Ajout de la vérification de la disponibilité des dates
+        // Création de la réservation
         $request->user()->booking()->create($validated);
 
         return redirect(RouteServiceProvider::HOME);
@@ -103,8 +123,16 @@ class BookingController extends Controller
      */
     public function cancel(Booking $booking)
     {
-        $booking->status = BookingStatus::Cancelled;
-        $booking->save();
+        if ($booking->status === BookingStatus::Finished) {
+            abort(403, 'This booking is no longer active.');
+        } elseif ($booking->status === BookingStatus::Validated) {
+            $booking->status = BookingStatus::Cancelled;
+            $booking->save();
+            // TODO Processus de remboursement
+        } else {
+            $booking->delete();
+        }
+
         return redirect(RouteServiceProvider::HOME);
     }
 

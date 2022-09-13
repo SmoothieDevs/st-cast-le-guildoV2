@@ -2,16 +2,16 @@
 
 namespace App\Enums;
 
+use App\Traits\EnumToArray;
+
 enum BookingStatus: string
 {
-    case NeedPayment = 'need_payment';
-    case PaidFor = 'paid_for';
-    case Confirmed = 'confirmed';
-    case Cancelled  = 'cancelled';
-    case Finished = 'finished';
+    use EnumToArray;
 
-    public static function getValues(): array
-    {
-        return array_column(BookingStatus::cases(), 'value');
-    }
+    case PendingVerification = 'pending-verification';
+    case PendingConfirmation = 'pending-confirmation';
+    case PendingPayment = 'pending-payment';
+    case Validated = 'validated';
+    case Cancelled = 'cancelled';
+    case Finished = 'finished';
 }

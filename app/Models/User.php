@@ -62,11 +62,11 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function booking()
     {
-        return $this->hasOne(Booking::class)->where('status', '!=', BookingStatus::Finished->value);
+        return $this->hasOne(Booking::class)->whereNotIn('status', [BookingStatus::Finished->name, BookingStatus::Cancelled->name]);
     }
 
     public function finishedBookings()
     {
-        return $this->hasMany(Booking::class)->where('status', BookingStatus::Finished->value);
+        return $this->hasMany(Booking::class)->where('status', BookingStatus::Finished->name);
     }
 }

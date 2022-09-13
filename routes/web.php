@@ -23,11 +23,12 @@ Route::get('/', function () {
 Route::get('admin/login', [AdminController::class, 'login'])->middleware('guest')->name('admin.login');
 Route::post('admin/login', [AdminController::class, 'store'])->middleware('guest')->name('admin.login');
 
+Route::resource('booking', BookingController::class);
+
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('dashboard', [UserController::class, 'dashboard'])->name('dashboard');
 
     Route::post('booking/{booking}/cancel', [BookingController::class, 'cancel'])->middleware('can:update,booking')->name('booking.cancel');
-    Route::resource('booking', BookingController::class);
 
     Route::middleware(['admin'])->group(function () {
         Route::get('admin', function () {

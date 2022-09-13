@@ -23,7 +23,7 @@ class Booking extends Model
    * @var array
    */
   protected $attributes = [
-    'status' => BookingStatus::NeedPayment,
+    'status' => BookingStatus::PendingVerification,
   ];
 
   /**

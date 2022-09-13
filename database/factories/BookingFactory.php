@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Enums\BookingStatus;
 use App\Models\Booking;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -34,7 +35,7 @@ class BookingFactory extends Factory
             'start' => $start,
             'end' => $end,
             'nb_people' => fake()->numberBetween(1, 5),
-            'status' => ['need_payment', 'paid_for', 'cancelled'][fake()->numberBetween(0, 2)],
+            'status' => BookingStatus::values()[fake()->numberBetween(0, 2)],
         ];
     }
 }

@@ -17,9 +17,10 @@ class BookingPolicy
      * @param  \App\Models\User  $user
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function create(User $user)
+    public function create(?User $user)
     {
-        return true;
+        // L'utilisateur n'est pas connecté OU l'utilisateur n'a pas de réservation en cours
+        return $user === null || !($user->booking != null);
     }
 
     /**

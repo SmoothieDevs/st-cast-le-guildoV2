@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
+use App\Enums\BookingStatus;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -31,7 +33,7 @@ class DatabaseSeeder extends Seeder
             'start' => '2023-01-01',
             'end' => '2023-01-10',
             'nb_people' => 2,
-            'status' => 'paid_for',
+            'status' => BookingStatus::Validated->value,
         ]);
     }
 }
