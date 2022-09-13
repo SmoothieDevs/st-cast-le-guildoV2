@@ -1,4 +1,4 @@
-<p>Bienvenue utilisateur authentifié</p>
+<p>Admin dashboard</p>
 
 <form method="POST" action="{{ route('logout') }}">
     @csrf

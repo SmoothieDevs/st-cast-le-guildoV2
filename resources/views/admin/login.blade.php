@@ -15,9 +15,8 @@
 </head>
 
 <body>
-    @if(!session()->has('success'))
     <h1>Connexion</h1>
-    <form action="{{ route('login') }}" method="post">
+    <form action="{{ route('admin.login') }}" method="post">
         @csrf
         <div>
             <label for="email">Email</label>
@@ -26,12 +25,15 @@
             <p>{{ $message }}</p>
             @enderror
         </div>
+        <div>
+            <label for="password">Mot de passe</label>
+            <input type="password" name="password" id="password" />
+            @error('password')
+            <p>{{ $message }}</p>
+            @enderror
+        </div>
         <button>Se connecter</button>
     </form>
-    @else
-    <p>Nous venons d'envoyer un mail de connexion à cette adresse.</p>
-    <p>Veuillez cliquer sur le lien dans ce mail pour terminer votre connexion.</p>
-    @endif
 </body>
 
 </html>

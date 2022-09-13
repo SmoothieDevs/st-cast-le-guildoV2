@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enums\BookingStatus;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Support\Str;
 use App\Mail\MagicLoginLink;
@@ -57,5 +58,15 @@ class User extends Authenticatable implements MustVerifyEmail
     public function loginTokens()
     {
         return $this->hasMany(LoginToken::class);
+    }
+
+    public function booking()
+    {
+        return $this->hasOne(Booking::class)->where('status', '!=', BookingStatus::Finished->value);
+    }
+
+    public function finishedBookings()
+    {
+        return $this->hasMany(Booking::class)->where('status', BookingStatus::Finished->value);
     }
 }
