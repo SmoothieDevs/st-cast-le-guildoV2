@@ -4,6 +4,8 @@ namespace App\Listeners;
 
 use App\Enums\BookingStatus;
 use Illuminate\Auth\Events\Verified;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\BookingPendingConfirmation;
 
 class BookingStatusEventSubscriber
 {
@@ -21,6 +23,7 @@ class BookingStatusEventSubscriber
         if ($user->booking) {
             $user->booking->status = BookingStatus::PendingConfirmation;
             $user->booking->save();
+            Mail::to(config('admin.email'))->queue(new BookingPendingConfirmation($user, $user->booking));
         }
     }
 
