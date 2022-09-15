@@ -1,48 +1,33 @@
-*,
-*::before,
-*::after {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
 body {
-    position: relative;
-    scroll-behavior: smooth;
-
     .body {
         height: auto;
         min-height: 100%;
         overflow: hidden;
         position: relative;
-
         width: 100%;
         z-index: 0;
     }
-
     &.black {
         .main-logo {
             a {
-                color: $color2;
-
                 span:first-child {
                     color: $color2;
+                    transition: color ease-in-out .5s;
                 }
 
                 span:last-child {
                     color: $color2;
+                    transition: color ease-in-out .5s;
                 }
             }
         }
-
         .station {
             color: $color2;
+            transition: color ease-in-out .5s;
         }
-
+        .btn-menu{
+            color: $color2;
+        }
     }
 }
 
@@ -55,11 +40,12 @@ main {
     z-index: 1;
     margin-bottom: var(--footer);
     margin-top: 100vh;
-
+    pointer-events: none;
     .inner-main {
         margin-top: 100vh;
         overflow: visible;
         position: relative;
+        pointer-events: none;
     }
 }
 
@@ -69,6 +55,26 @@ a {
 }
 
 body {
+    z-index: 1;
+    width: 100%;
+    .btn-menu{
+        pointer-events: all;
+        border: none;
+        outline: 0;
+        background: none;
+        text-transform: uppercase;
+        position: fixed;
+        transition: color ease-in-out .5s;
+        display: inline-block;
+        z-index: 999;
+        right: 6.5rem;
+        top: 3rem;
+        font-size: 12px;
+        font-weight: 550;
+        line-height: 16px;
+        color: white;
+        font-family: $font2;
+    }
     .main-logo {
         z-index: 999;
         left: 50%;
@@ -81,8 +87,6 @@ body {
             color: white;
             display: flex;
             flex-direction: column;
-            transition: color ease-in-out .5s;
-
             span:first-child {
                 font-family: $font1;
                 font-size: 120px;
@@ -119,6 +123,7 @@ body {
         font-size: 12px;
         font-weight: 550;
         line-height: 16px;
+        opacity: 0;
         z-index: 999;
         color: white;
         top: 3rem;
@@ -129,9 +134,11 @@ body {
             font-size: 12px;
             font-weight: 550;
             line-height: 16px;
+            
+        }
 
+        .time{
             span {
-
                 transform: translate3d(0, -10px, 0);
                 font-size: 12px;
                 font-weight: 700;
