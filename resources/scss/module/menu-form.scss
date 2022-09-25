@@ -1,0 +1,87 @@
+.menu-form {
+    position: fixed;
+    z-index: 100;
+    bottom: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: white;
+    border-radius: 20px;
+    padding: 12px 20px;
+    width: 100%;
+    max-width: 1550px;
+
+    form {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+    }
+
+    .wrapper-input {
+        display: flex;
+    }
+
+    label {
+        font-weight: 300;
+        font-size: 1.2rem;
+        line-height: 150%;
+        color: $color2;
+        opacity: 1;
+        font-family: $font3;
+    }
+
+    input {
+        appearance: none;
+        border: none;
+        outline: none;
+        font-weight: 300;
+        font-size: 1.2rem;
+        line-height: 150%;
+        color: $color2;
+        font-family: $font3;
+
+        &::placeholder {
+            font-weight: 300;
+            font-size: 1.2rem;
+            line-height: 150%;
+            color: $color2;
+            opacity: 1;
+            font-family: $font3;
+        }
+    }
+
+    .date{
+        position: relative;
+        padding-left: 50px;
+        &::after{
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+            width: 20px;
+            height: 20px;
+            background-image: url(../img/calendar.svg);
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        &::before{
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: $color1;
+        }
+    }
+
+    input[name="arrive"]{
+        width: 80px;
+    }
+    input[name="depart"]{
+        width: 80px;
+        background-image: none !important;
+    }
+}

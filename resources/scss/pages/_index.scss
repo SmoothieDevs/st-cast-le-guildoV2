@@ -79,7 +79,7 @@ body {
         z-index: 999;
         left: 50%;
         position: fixed;
-        top: 35%;
+        top: 50%;
         transform: translate3d(-50%, -50%, 0);
         text-align: center;
 
@@ -89,7 +89,7 @@ body {
             flex-direction: column;
             span:first-child {
                 font-family: $font1;
-                font-size: 120px;
+                font-size: 70px;
                 font-weight: 400;
                 line-height: 110%;
                 letter-spacing: 0em;
@@ -101,7 +101,7 @@ body {
 
             span:last-child {
                 font-family: $font1;
-                font-size: 60px;
+                font-size: 30px;
                 font-weight: 500;
                 transform: translate(0, 25px);
                 line-height: 110%;

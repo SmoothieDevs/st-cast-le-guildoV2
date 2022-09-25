@@ -5,11 +5,18 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>St-Cast-Le-Guildo</title>
+  @vite(['resources/css/loader.css','resources/js/loader.js'])
   @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/scss/app.scss'])
 </head>
 
-<body id="body">
+<body style="position: fixed;" id="body">
   <div class="body">
+    <div class="loader">
+      <div class="wrapper">
+        <div class="icon"></div>
+        <p>Chargement...</p>
+      </div>
+    </div>
     <div class="main-logo">
       <h1>
         <a href="/">
@@ -28,6 +35,30 @@
     <button class="btn-menu">
       menu
     </button>
+    <div class="menu-form">
+      <form method="POST">
+        <div class="wrapper-input date">
+          <input type="text" placeholder="Arrivé" name="arrive">
+          <input type="text" placeholder="Départ" name="depart">
+        </div>
+        <div class="wrapper-input personnes">
+          <label>Personnes</label>
+          <div class="plus"></div>
+          <input type="text" name="personne">
+          <div class="less"></div>
+        </div>
+        <div class="wrapper-input email">
+          <input type="email" placeholder="Adresse E-mail" name="email">
+        </div>
+        <div class="wrapper-input prenom">
+          <input type="text" placeholder="Prénom" name="prenom">
+        </div>
+        <div class="wrapper-input nom">
+          <input type="text" placeholder="Nom" name="nom">
+        </div>
+
+      </form>
+    </div>
     <nav>
       <div class="nav-bg"></div>
       <div class="nav-container">

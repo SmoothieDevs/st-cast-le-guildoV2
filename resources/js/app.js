@@ -15,8 +15,6 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
-import "./hero.js";
-import "./navigation";
 import "./weatherAPI.js";
 import "./section2";
 import "./footer";
@@ -24,7 +22,7 @@ import "./footer";
 document.addEventListener("DOMContentLoaded", function () {
 
     let hero = document.querySelector("section.hero-section")
-
+    let navOpen = false;
     //////////// MAIN LOGO ANIMATION ON START SCROLL ////////////
     let mainLogo = document.querySelector(".main-logo");
     let tlMainLogo = gsap.timeline({ paused: true });
@@ -39,19 +37,15 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     //////////// Navigation Apparition ////////////
-    let tl = gsap.timeline();
-    tl.add('start');
-    tl.to(".bg-img", { scale: 1, duration: 1.5, delay: .5, ease: "power3.inOut" }, 'start')
+    let tl = gsap.timeline({ paused: true }).to(".bg-img", { scale: 1, duration: 1.5, delay: .5, ease: "power3.inOut" }, 'start')
         .to(".station", { opacity: 1, y: 0, duration: 1, delay: 1, ease: "power1.inOut" }, 'start')
         .to(".main-logo .sup", { opacity: 1, y: 0, duration: 1.5, delay: 1, ease: "power1.inOut" }, 'start')
         .to(".main-logo .sub", { opacity: 1, y: 0, duration: 1.5, delay: 1.2, ease: "power1.inOut" }, 'start');
-
+    tl.play();
     /////////// NAVIGATION ///////////
 
     let button = document.querySelector(".btn-menu");
     let nav = document.querySelector("nav");
-    let black;
-    let navOpen = false;
     let navAnimDone = true;
 
     button.addEventListener("click", function () {
