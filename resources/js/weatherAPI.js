@@ -13,11 +13,8 @@ function getWeather(callback) {
         });
 }
 
-getWeather(getData)
-
 function getData(d) {
-    document.querySelector('.temperature').innerHTML += parseInt(d.main.temp)+"°c"
-    document.querySelector('.lieu').innerHTML += d.name
+    document.querySelector('.temperature').innerHTML = "<span>|</span>" + parseInt(d.main.temp) + "°c"
     let options = {
         timeZone: 'Europe/Paris',
         hour: 'numeric',
@@ -25,5 +22,7 @@ function getData(d) {
     }
     let formatter = new Intl.DateTimeFormat([], options);
     let timeText = document.querySelector('time.time')
-    timeText.innerHTML = formatter.format(new Date())
+    timeText.innerHTML = formatter.format(new Date()) + "<span>|</span>"
 }
+
+getWeather(getData)

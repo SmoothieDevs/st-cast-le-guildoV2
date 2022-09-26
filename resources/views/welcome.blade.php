@@ -5,33 +5,81 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>St-Cast-Le-Guildo</title>
+  @vite(['resources/css/loader.css','resources/js/loader.js'])
   @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/scss/app.scss'])
 </head>
 
-<body id="body">
+<body style="position: fixed;" id="body">
   <div class="body">
-  <div class="main-logo">
-        <h1>
-          <a href="/">
-            <span class="sup">Cézembre</span>
-            <span class="sub">Le Guildo</span>
-        </h1>
-        </a>
+    <div class="loader">
+      <div class="wrapper">
+        <div class="icon"></div>
+        <p>Chargement...</p>
       </div>
-      <div class="station">
-        <span class="icon"></span>
-        <time class="time"></time>
-        <p class="lieu"><span>|</span></p>
-        <p class="temperature"><span>|</span></p>
+    </div>
+    <div class="main-logo">
+      <h1>
+        <a href="/">
+          <span class="sup">Cézembre</span>
+          <span class="sub">Le Guildo</span>
+      </h1>
+      </a>
+    </div>
+    <div class="station">
+      <span class="icon"></span>
+      <time class="time"></time>
+      <p class="lieu">Saint-Cast-le-Guildo</p>
+      <p class="temperature"></p>
+
+    </div>
+    <button class="btn-menu">
+      menu
+    </button>
+    <div class="menu-form">
+      <form method="POST">
+        <div class="wrapper-input date">
+          <input type="text" placeholder="Arrivé" name="arrive">
+          <input type="text" placeholder="Départ" name="depart">
+        </div>
+        <div class="wrapper-input personnes">
+          <label>Personnes</label>
+          <div class="plus"></div>
+          <input type="text" name="personne">
+          <div class="less"></div>
+        </div>
+        <div class="wrapper-input email">
+          <input type="email" placeholder="Adresse E-mail" name="email">
+        </div>
+        <div class="wrapper-input prenom">
+          <input type="text" placeholder="Prénom" name="prenom">
+        </div>
+        <div class="wrapper-input nom">
+          <input type="text" placeholder="Nom" name="nom">
+        </div>
+
+      </form>
+    </div>
+    <nav>
+      <div class="nav-bg"></div>
+      <div class="nav-container">
+        <div class="nav-wrapper">
+          <div class="nav-wrapper-l">
+            <ul>
+              <li><a class="accueil" href="">Accueil</a></li>
+              <li><a class="st-cast" href="">St-Cast</a></li>
+              <li><a class="appartement" href="">Appartement</a></li>
+              <li><a class="contact" href="">Contact</a></li>
+            </ul>
+          </div>
+          <div class="nav-wrapper-r"></div>
+        </div>
 
       </div>
-      <button class="btn-menu">
-
-      </button>
-      <div class="inner-main">
-        <section id="section-hero" class="hero-section" data-color="white">
-          <img class="bg-img" src="{{ asset('images/st-cast/St-Cast-Hero.jpg')}}">
-      </div>
+    </nav>
+    <div class="inner-main">
+      <section id="section-hero" class="hero-section" data-color="white">
+        <img class="bg-img" src="{{ asset('images/st-cast/St-Cast-Hero.jpg')}}">
+    </div>
     <main>
       <div class="main-page">
         <section id="section1" class="section1" data-color="black">
