@@ -16,8 +16,7 @@ class Administrator
      */
     public function handle(Request $request, Closure $next)
     {
-        $isAdmin = $request->session()->get('isAdmin', false);
-        if ($isAdmin) {
+        if ($request->user()->isAdministrator()) {
             return $next($request);
         } else {
             return redirect()->route('admin.login');

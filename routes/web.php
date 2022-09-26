@@ -1,8 +1,9 @@
 <?php
 
-use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
+use App\Providers\RouteServiceProvider;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BookingController;
 
 /*
@@ -31,10 +32,12 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::post('booking/{booking}/cancel', [BookingController::class, 'cancel'])->middleware('can:update,booking')->name('booking.cancel');
 
     Route::middleware(['admin'])->group(function () {
-        Route::get('admin', function () {
-            return view('admin.dashboard');
+        Route::get('admin/dashboard', function () {
+            return redirect(RouteServiceProvider::HOME);
         })->name('admin.dashboard');
+
+        Route::post('booking/{booking}/confirm', [BookingController::class, 'confirm'])->middleware('can:update,booking')->name('booking.confirm');
     });
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

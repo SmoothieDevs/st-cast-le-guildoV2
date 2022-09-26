@@ -117,6 +117,23 @@ class BookingController extends Controller
     }
 
     /**
+     * Confirme la réservation.
+     *
+     * @param  \App\Models\Booking  $booking
+     * @return \Illuminate\Http\Response
+     */
+    public function confirm(Booking $booking)
+    {
+        if ($booking->status === BookingStatus::PendingConfirmation) {
+            $booking->status = BookingStatus::PendingPayment;
+            $booking->save();
+            // TODO: Envoyer un email de confirmation
+        }
+
+        return redirect(RouteServiceProvider::HOME);
+    }
+
+    /**
      * Annule la réservation.
      *
      * @param  \App\Models\Booking  $booking
@@ -129,7 +146,7 @@ class BookingController extends Controller
         } elseif ($booking->status === BookingStatus::Validated) {
             $booking->status = BookingStatus::Cancelled;
             $booking->save();
-            // TODO Processus de remboursement
+            // TODO Envoyer un email d'annulation
         } else {
             $booking->delete();
         }

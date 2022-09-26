@@ -69,4 +69,9 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->hasMany(Booking::class)->where('status', BookingStatus::Finished->name);
     }
+
+    public function isAdministrator()
+    {
+        return session()->get('isAdmin', false);
+    }
 }

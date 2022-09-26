@@ -14,4 +14,16 @@ enum BookingStatus: string
     case Validated = 'validated';
     case Cancelled = 'cancelled';
     case Finished = 'finished';
+
+    public function label(): string
+    {
+        return match ($this) {
+            static::PendingVerification => 'Pending verification',
+            static::PendingConfirmation => 'Pending confirmation',
+            static::PendingPayment => 'Pending payment',
+            static::Validated => 'Validated',
+            static::Cancelled => 'Cancelled',
+            static::Finished => 'Finished',
+        };
+    }
 }
