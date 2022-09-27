@@ -18,6 +18,7 @@ gsap.registerPlugin(ScrollTrigger);
 import "./weatherAPI.js";
 import "./section2";
 import "./footer";
+import { values } from "lodash";
 
 document.addEventListener("DOMContentLoaded", function () {
 
@@ -209,4 +210,26 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
     });
+
+    //////////// Reservation bar ////////////
+
+    let reservation = document.getElementsByClassName("menu-form")[0]
+    let inputPersonnes = reservation.querySelector(".personnes input")
+    let nbPersonnes = 1;
+    inputPersonnes.value = "0" + nbPersonnes;
+    let btnPlus = reservation.querySelector(".plus");
+    let btnLess = reservation.querySelector(".less");
+
+    btnPlus.addEventListener("click",function(){
+        if (nbPersonnes<6){
+            nbPersonnes++;
+            inputPersonnes.value = "0" + nbPersonnes;
+        }
+    })
+    btnLess.addEventListener("click",function(){
+        if (nbPersonnes>1){
+            nbPersonnes--;
+            inputPersonnes.value = "0" + nbPersonnes;
+        }
+    })
 })
