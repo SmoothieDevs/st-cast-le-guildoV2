@@ -38,23 +38,30 @@
     <div class="menu-form">
       <form method="POST">
         <div class="wrapper-input date">
+          <label for="date"></label>
           <input type="text" placeholder="Arrivé" name="arrive">
           <input type="text" placeholder="Départ" name="depart">
         </div>
         <div class="wrapper-input personnes">
           <label>Personnes</label>
-          <div class="plus"></div>
-          <input type="text" name="personne">
           <div class="less"></div>
+          <input type="text" name="personne">
+          <div class="plus"></div>
         </div>
         <div class="wrapper-input email">
+        <label></label>
           <input type="email" placeholder="Adresse E-mail" name="email">
         </div>
         <div class="wrapper-input prenom">
+          <label></label>
           <input type="text" placeholder="Prénom" name="prenom">
         </div>
         <div class="wrapper-input nom">
+        <label></label>
           <input type="text" placeholder="Nom" name="nom">
+        </div>
+        <div class="wrapper-input submit">
+          <input type="submit" value="">
         </div>
 
       </form>
