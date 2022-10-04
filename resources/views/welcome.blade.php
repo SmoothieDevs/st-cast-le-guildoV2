@@ -192,7 +192,6 @@
                 <li><span class="porte">Porte Sécurisé</span></li>
               </ul>
             </div>
-
           </div>
           <div class="wrapper-right">
             <figure id="figure-3">
