@@ -2,16 +2,18 @@
     <form action="{{ route('booking.store') }}" method="post">
         @csrf
         <div class="wrapper-input date">
-            <label for="arrive">Début:</label>
+            <label for="arrive"></label>
             <input type="date" id="arrive" name="start" value="{{ old('start', $startDefault->format('Y-m-d')) }}" min="{{ $startMin->format('Y-m-d') }}" max="{{ $startMax->format('Y-m-d') }}" required>
-            <label for="depart">Fin:</label>
             <input type="date" id="depart" name="end" value="{{ old('end', $endDefault->format('Y-m-d')) }}" min="{{ $endMin->format('Y-m-d') }}" max="{{ $endMax->format('Y-m-d') }}" required>
         </div>
         <div class="wrapper-input personnes">
+            <div class="icon"></div>
             <label>Personnes</label>
-            <div class="less"></div>
-            <input type="text" id="personne" name="nb_people" value="{{ old('nb_people', '01') }}" required>
-            <div class="plus"></div>
+            <div class="buttons">
+                <div class="less"></div>
+                <input type="text" id="personne" name="nb_people" value="{{ old('nb_people', '01') }}" required>
+                <div class="plus"></div>
+            </div>
         </div>
         @if(auth()->user() === null)
         <div class="wrapper-input email">
