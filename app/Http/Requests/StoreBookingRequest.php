@@ -29,7 +29,7 @@ class StoreBookingRequest extends FormRequest
         return [
             'start' => 'required|date',
             'end' => 'required|date|after_or_equal:start',
-            'nb_people' => 'required|integer|min:1',
+            'nb_people' => 'required|numeric|min:1',
             'email' => 'email|string|max:255|unique:users',
             'firstname' => 'string|max:255|required_with:email',
             'lastname' => 'string|max:255|required_with:email',
