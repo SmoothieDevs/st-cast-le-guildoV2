@@ -6,7 +6,10 @@ use App\Models\User;
 use App\Models\Booking;
 use App\Enums\BookingStatus;
 use Illuminate\Http\Request;
+use App\Mail\BookingConfirmed;
+use App\Events\BookingCancelled;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Auth\Events\Registered;
 use App\Http\Resources\BookingResource;
 use App\Providers\RouteServiceProvider;
@@ -125,9 +128,10 @@ class BookingController extends Controller
     public function confirm(Booking $booking)
     {
         if ($booking->status === BookingStatus::PendingConfirmation) {
-            $booking->status = BookingStatus::PendingPayment;
+            $booking->status = BookingStatus::Validated;
             $booking->save();
-            // TODO: Envoyer un email de confirmation
+            // Mail à l'utilisateur pour l'informer de la validation de sa réservation
+            Mail::to($booking->user->email)->queue(new BookingConfirmed($booking));
         }
 
         return redirect(RouteServiceProvider::HOME);
@@ -144,9 +148,8 @@ class BookingController extends Controller
         if ($booking->status === BookingStatus::Finished) {
             abort(403, 'This booking is no longer active.');
         } elseif ($booking->status === BookingStatus::Validated) {
-            $booking->status = BookingStatus::Cancelled;
-            $booking->save();
-            // TODO Envoyer un email d'annulation
+            // Evènement écouté dans BookingStatusEventSubscriber
+            event(new BookingCancelled($booking));
         } else {
             $booking->delete();
         }
