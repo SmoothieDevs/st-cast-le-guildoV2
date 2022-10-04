@@ -10,7 +10,6 @@ enum BookingStatus: string
 
     case PendingVerification = 'pending-verification';
     case PendingConfirmation = 'pending-confirmation';
-    case PendingPayment = 'pending-payment';
     case Validated = 'validated';
     case Cancelled = 'cancelled';
     case Finished = 'finished';
@@ -20,7 +19,6 @@ enum BookingStatus: string
         return match ($this) {
             static::PendingVerification => 'Pending verification',
             static::PendingConfirmation => 'Pending confirmation',
-            static::PendingPayment => 'Pending payment',
             static::Validated => 'Validated',
             static::Cancelled => 'Cancelled',
             static::Finished => 'Finished',
