@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <title>St-Cast-Le-Guildo</title>
+  <title>Home | Cézembre Le-Guildo</title>
   @vite(['resources/css/loader.css','resources/js/loader.js'])
   @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/scss/app.scss'])
 </head>
@@ -20,8 +20,8 @@
   <div class="main-logo">
     <h1>
       <a href="/">
-        <span class="sup">Cézembre</span>
-        <span class="sub">Le Guildo</span>
+        <span data-splitting class="sup">Cézembre</span>
+        <span data-splitting class="sub">Le Guildo</span>
     </h1>
     </a>
   </div>
@@ -32,9 +32,14 @@
     <p class="temperature"></p>
 
   </div>
-  <button class="btn-menu">
-    menu
-  </button>
+  <div class="btn-menu">
+    <div class="menu-text" data-menu="menu" data-close="close"></div>
+    <div class="menu-bar">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+</div>
   <x-booking-form />
   <nav>
     <div class="nav-bg"></div>
@@ -42,10 +47,10 @@
       <div class="nav-wrapper">
         <div class="nav-wrapper-l">
           <ul>
-            <li><a class="accueil" href="">Accueil</a></li>
-            <li><a class="st-cast" href="">St-Cast</a></li>
-            <li><a class="appartement" href="">Appartement</a></li>
-            <li><a class="contact" href="">Contact</a></li>
+            <li><div class="link-number"><span>01</span></div><a class="accueil" href="#">Accueil</a></li>
+            <li><div class="link-number"><span>02</span></div><a class="st-cast" href="#section2">St-Cast</a></li>
+            <li><div class="link-number"><span>03</span></div><a class="appartement" href="#section4">Appartement</a></li>
+            <li><div class="link-number"><span>04</span></div><a class="contact" href="#section6">Contact</a></li>
           </ul>
         </div>
         <div class="nav-wrapper-r"></div>
@@ -54,7 +59,7 @@
     </div>
   </nav>
 
-  <main>
+  <main id="home">
 
     <section id="section-hero" class="hero-section" data-color="white">
       <img class="bg-img" src="{{ asset('images/st-cast/St-Cast-Hero.jpg')}}">

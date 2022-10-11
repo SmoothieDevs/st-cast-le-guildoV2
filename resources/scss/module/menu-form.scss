@@ -1,7 +1,7 @@
 .menu-form {
     position: fixed;
-    z-index: 100;
-    bottom: 100px;
+    z-index: 50;
+    bottom: 60px;
     left: 50%;
     transform: translateX(-50%);
     background-color: white;
@@ -9,6 +9,12 @@
     padding: 12px 20px;
     width: calc(100% - 40px);
     max-width: 1550px;
+    transition: all .6s ease-in-out;
+
+    &.off {
+        bottom: 0px;
+        transform: translate(-50%,100%);
+    }
 
     form {
         display: flex;
@@ -52,6 +58,7 @@
             width: 40px;
             height: 40px;
             margin-right: 10px;
+
             &::after {
                 content: "";
                 position: absolute;

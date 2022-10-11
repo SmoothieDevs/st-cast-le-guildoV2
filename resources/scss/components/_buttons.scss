@@ -10,16 +10,42 @@
     font-style: italic;
     font-weight: 300;
     font-size: 20px;
-    
     color: $color1;
-    &:visited,&:focus{
-        color: $color1; 
+    pointer-events: all;
+    &:visited,
+    &:focus {
+        color: $color1;
     }
-    &.ghost{
+
+    &.ghost {
         color: white;
         border: 1px solid white;
-        &:visited,&:focus{
-            color: white; 
+
+        &:visited,
+        &:focus {
+            color: white;
+        }
+    }
+
+    &.btn-login {
+        transition: all .5s ease-in-out;
+        border: 1px solid $color2;
+        border-radius: 15px;
+        text-align: center;
+        font-style: normal;
+        font-weight: 300;
+        font-family: $font3;
+        font-size: 20px;
+        background-color: transparent;
+        padding: 15px 30px;
+        color: $color2;
+        &:visited,
+        &:focus {
+            color: $color2;
+        }
+        &:hover{
+            background-color: $color2;
+            color: white;
         }
     }
 }

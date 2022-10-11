@@ -17,6 +17,7 @@
     },
     "dependencies": {
         "gsap": "^3.11.1",
-        "siema": "^1.5.1"
+        "siema": "^1.5.1",
+        "splitting": "^1.0.6"
     }
 }

@@ -20,9 +20,9 @@ function getData(d) {
         hour: 'numeric',
         minute: 'numeric'
     }
-    let formatter = new Intl.DateTimeFormat([], options);
     let timeText = document.querySelector('time.time')
-    timeText.innerHTML = formatter.format(new Date()) + "<span>|</span>"
+    timeText.innerHTML = new Date().toLocaleTimeString("fr-FR",options) + "<span>|</span>"
+    setInterval(()=>timeText.innerHTML = new Date().toLocaleTimeString("fr-FR",options) + "<span>|</span>",1000)
 }
 
 getWeather(getData)
