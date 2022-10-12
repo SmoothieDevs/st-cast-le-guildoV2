@@ -1,5 +1,5 @@
 main#login {
-    padding: 100px 15px;
+    padding: 100px 20px;
     height: 100vh;
 
     .wrapper {
@@ -79,5 +79,28 @@ main#login {
 
     button {
         margin-top: 70px;
+    }
+
+    .login-message{
+        text-align: center;
+        margin-top: 30px;
+        font-size: 15px;
+        font-weight: 300;
+        line-height: 150%;
+        color: rgba(255, 106, 0, 0.999);
+        font-family: $font3;
+        p:first-child{
+            margin-bottom: 10px;
+        }
+    }
+
+    .error-message{
+        text-align: center;
+        margin-top: 30px;
+        font-size: 15px;
+        font-weight: 300;
+        line-height: 150%;
+        color: rgba(255, 44, 44, 0.999);
+        font-family: $font3;
     }
 }

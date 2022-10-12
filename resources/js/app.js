@@ -9,7 +9,7 @@ import { EaselPlugin } from "gsap/EaselPlugin";
 import { MotionPathPlugin } from "gsap/MotionPathPlugin";
 import { PixiPlugin } from "gsap/PixiPlugin";
 import { TextPlugin } from "gsap/TextPlugin";*/
-import Splitting from "splitting"; 
+import Splitting from "splitting";
 
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -21,6 +21,7 @@ import "./footer";
 import "./login";
 
 document.addEventListener("DOMContentLoaded", function () {
+    
     if (document.getElementsByClassName("hero-section")[0] != undefined) {
         let hero = document.querySelector(".hero-section");
         let navOpen = false;
@@ -28,12 +29,12 @@ document.addEventListener("DOMContentLoaded", function () {
         let mainLogo = document.querySelector(".main-logo");
         let tlMainLogo = gsap.timeline({ paused: true });
 
-        const charSplit = Splitting({  by: 'chars' });
+        const charSplit = Splitting({ by: 'chars' });
 
         tlMainLogo.add('scroll');
         tlMainLogo.to(mainLogo, { top: 50, duration: 1, ease: "power2.inOut" }, 'scroll')
-            .to('.main-logo .sup', { fontSize: 30, duration: 1, ease: "power2.inOut" }, 'scroll')
-            .to(".main-logo .sub", { fontSize: 18, duration: 1, ease: "power2.inOut" }, 'scroll')
+            .to('.main-logo .sup ', { fontSize: 30, duration: 1, ease: "power2.inOut" }, 'scroll')
+            .to(".main-logo .sub ", { fontSize: 18, duration: 1, ease: "power2.inOut" }, 'scroll')
 
         if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20 && navOpen == false) {
             tlMainLogo.play(1);
@@ -41,10 +42,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
         //////////// Navigation Apparition ////////////
-        let tl = gsap.timeline({ paused: true }).to(".bg-img", { scale: 1, duration: 1.5, delay: .5, ease: "power3.inOut" }, 'start')
+        let tl = gsap.timeline({ paused: true }).to(".bg-img", { scale: 1, duration: 2, delay: 1, ease: "power3.inOut" }, 'start')
             .to(".station", { opacity: 1, y: 0, duration: 1, delay: 1, ease: "power1.inOut" }, 'start')
-            .to(".main-logo .sup", { opacity: 1, y: 0, duration: 1.5, delay: 1, ease: "power1.inOut" }, 'start')
-            .to(".main-logo .sub", { opacity: 1, y: 0, duration: 1.5, delay: 1.2, ease: "power1.inOut" }, 'start');
+            .to(".main-logo .sup .char", { y: 0, stagger: .08, duration: 1, delay: 1.8, ease: "power1.inOut" }, 'start')
+            .to(".main-logo .sub .char", { y: 0, stagger: .08, duration: 1, delay: 2.3, ease: "power1.inOut" }, 'start');
         tl.play();
         /////////// NAVIGATION ///////////
 
@@ -65,9 +66,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
         let tlNavOpen = gsap.timeline({ paused: true });
         let tlNavClose = gsap.timeline({ paused: true });
-        tlNavOpen.to(".link-number span", { delay: 0.2, y: 0, duration: .8, ease: "power1.out", stagger: .05 }, "open").to("nav li a", { y: 0, duration: 1, ease: "power4.out", stagger: .05, onComplete: function () { navAnimDone = true; } }, "open")
+        tlNavOpen.to(".link-number span", { delay: 0.2, y: 0, duration: .8, ease: "power1.out", stagger: .05 }, "open")
+        .to("nav li a", { y: 0, duration: 1, ease: "power4.out", stagger: .05, onComplete: function () { navAnimDone = true; } }, "open")
 
-        tlNavClose.to(".link-number span", { delay: 0.1, y: "-100%", duration: 1, ease: "power4.out", stagger: .05 }, "close").to("nav li a", { y: "-100%", duration: .3, ease: "power1.in", stagger: .05 }, "close")
+        tlNavClose.to(".link-number span", { delay: 0.1, y: "-100%", duration: 1, ease: "power4.out", stagger: .05 }, "close")
+        .to("nav li a", { y: "-100%", duration: .3, ease: "power1.in", stagger: .05 }, "close")
 
         document.querySelectorAll("nav li a").forEach(function (link) {
             link.addEventListener("click", function () {
@@ -107,6 +110,7 @@ document.addEventListener("DOMContentLoaded", function () {
         //////////// Reservation bar ////////////
 
         let reservation = document.getElementsByClassName("menu-form")[0]
+        let reservationForm = reservation.querySelector("form");
         let inputPersonnes = reservation.querySelector(".personnes input")
         let nbPersonnes = 1;
         inputPersonnes.value = "0" + nbPersonnes;
@@ -126,6 +130,20 @@ document.addEventListener("DOMContentLoaded", function () {
                 inputPersonnes.value = "0" + nbPersonnes;
             }
         })
+
+        //////////// Reservation bar Apparition ////////////
+
+        let reservationBarTl = gsap.timeline({ paused: true })
+        let hideReservationBarTl = gsap.timeline({ paused: true }).to(reservation, { bottom: -100, duration: .6, ease: "power2.inOut" });
+        const clamp = (num, min, max) => Math.min(Math.max(num, min), max);
+        let reservationBarWidth = clamp(window.innerWidth, 0, 1550);
+
+        
+        reservationBarTl.to(reservation, {delay:1, bottom: 60, duration: 1, ease: "power2.inOut" }, 'start')
+        .to(reservation, { scaleX: 1, duration: 1.8,width: reservationBarWidth, delay: 2, ease: "power1.inOut",onComplete: function () { reservationForm.style.display = "flex" } }, 'start')
+        .to(reservationForm,{duration:1,opacity:1, ease: "power3.inOut"})
+
+        reservationBarTl.play();
 
         //////////// SCROLLING ////////////
         let sectionWhite = document.querySelectorAll('section[data-color="white"]');
@@ -215,11 +233,12 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
             }
             if ((document.body.scrollTop > 20 || document.documentElement.scrollTop) > 20 && navOpen == false) {
-                reservation.classList.add("off");
+                
+                hideReservationBarTl.play();
                 tlMainLogo.play();
             } else if ((document.body.scrollTop < 20 || document.documentElement.scrollTop < 20) && navOpen == false) {
                 tlMainLogo.reverse();
-                reservation.classList.remove("off");
+                hideReservationBarTl.reverse();
             }
             if (document.body.scrollTop > 2000 || document.documentElement.scrollTop > 2000) {
                 hero.classList.add("hide")
@@ -250,7 +269,5 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
             });
         });
-
-
     }
 })

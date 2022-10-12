@@ -20,8 +20,8 @@
   <div class="main-logo">
     <h1>
       <a href="/">
-        <span data-splitting class="sup">Cézembre</span>
-        <span data-splitting class="sub">Le Guildo</span>
+        <div data-splitting class="sup">Cézembre</div>
+        <div data-splitting class="sub">Le Guildo</div>
     </h1>
     </a>
   </div>
@@ -31,6 +31,9 @@
     <p class="lieu">Saint-Cast-le-Guildo</p>
     <p class="temperature"></p>
 
+  </div>
+  <div class="btn-login">
+    <a href="/login">Connexion</a>
   </div>
   <div class="btn-menu">
     <div class="menu-text" data-menu="menu" data-close="close"></div>
@@ -62,7 +65,7 @@
   <main id="home">
 
     <section id="section-hero" class="hero-section" data-color="white">
-      <img class="bg-img" src="{{ asset('images/st-cast/St-Cast-Hero.jpg')}}">
+      <img class="bg-img" src="{{ asset('images/st-cast/st-cast-hero.webp')}}">
     </section>
     <section id="section1" class="section1" data-color="black">
       <div class="container">
@@ -95,9 +98,9 @@
               <div class="hidder-r"></div>
               <figure>
                 <img src="{{ asset('images/st-cast/slider1.jpg')}}">
-                <img style="display: none ;" src="{{ asset('images/st-cast/slider2.jpg')}}">
-                <img style="display: none ;" src="{{ asset('images/st-cast/slider3.jpg')}}">
-                <img style="display: none ;" src="{{ asset('images/st-cast/slider4.jpg')}}">
+                <img loading="lazy" style="display: none ;" src="{{ asset('images/st-cast/slider2.jpg')}}">
+                <img loading="lazy" style="display: none ;" src="{{ asset('images/st-cast/slider3.jpg')}}">
+                <img loading="lazy" style="display: none ;" src="{{ asset('images/st-cast/slider4.jpg')}}">
               </figure>
               <div class="index">
                 <p class="actual"></p>

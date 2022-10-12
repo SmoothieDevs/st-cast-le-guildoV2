@@ -14,7 +14,7 @@
 </head>
 
 <body class="black fixed">
-<div class="loader">
+    <div class="loader">
         <div class="wrapper">
             <div class="icon"></div>
             <p>Chargement...</p>
@@ -23,8 +23,8 @@
     <div class="main-logo">
         <h1>
             <a href="/">
-                <span class="sup">Cézembre</span>
-                <span class="sub">Le Guildo</span>
+                <div data-splitting class="sup">Cézembre</div>
+                <div data-splitting class="sub">Le Guildo</div>
         </h1>
         </a>
     </div>
@@ -33,30 +33,56 @@
         <time class="time"></time>
         <p class="lieu">Saint-Cast-le-Guildo</p>
         <p class="temperature"></p>
+
     </div>
-    <button class="btn-menu">
-        menu
-    </button>
-    @if(!session()->has('success'))
+    <div class="btn-menu">
+        <div class="menu-text" data-menu="menu" data-close="close"></div>
+        <div class="menu-bar">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+    <nav>
+    <div class="nav-bg"></div>
+    <div class="nav-container">
+      <div class="nav-wrapper">
+        <div class="nav-wrapper-l">
+          <ul>
+            <li><div class="link-number"><span>01</span></div><a class="accueil" href="/">Accueil</a></li>
+            <li><div class="link-number"><span>02</span></div><a class="st-cast" href="/#section2">St-Cast</a></li>
+            <li><div class="link-number"><span>03</span></div><a class="appartement" href="/#section4">Appartement</a></li>
+            <li><div class="link-number"><span>04</span></div><a class="contact" href="/#section6">Contact</a></li>
+          </ul>
+        </div>
+        <div class="nav-wrapper-r"></div>
+      </div>
+
+    </div>
+  </nav>
     <main id="login">
         <div class="wrapper">
             <div class="form-wrapper">
-            <div class="icon"></div>
-            <h2>Connexion</h2>
-            <form action="{{ route('login') }}" method="post">
-                @csrf
-                <div class="input-wrapper">
-                    <input type="email" name="email" id="email" placeholder="Adresse E-mail"/>
-                    @error('email')
-                    <p>{{ $message }}</p>
-                    @enderror
-                </div>
-                <button class="btn btn-login">Connexion</button>
-            </form>
-            @else
-            <p>Nous venons d'envoyer un mail de connexion à cette adresse.</p>
-            <p>Veuillez cliquer sur le lien dans ce mail pour terminer votre connexion.</p>
-            @endif
+                <div class="icon"></div>
+                <h2>Connexion</h2>
+                <form action="{{ route('login') }}" method="post">
+                    @csrf
+                    <div class="input-wrapper">
+                        <input type="email" name="email" id="email" placeholder="Adresse E-mail" />
+                        @error('email')
+                        <p class="error-message">{{ $message }}</p>
+                        @enderror
+                    </div>
+                    <button class="btn btn-login">Connexion</button>
+                    @if(session()->has('success'))
+                    <div class="login-message">
+                        <p>Nous venons d'envoyer un mail de connexion à cette adresse.</p>
+                        <p>Veuillez cliquer sur le lien dans ce mail pour terminer votre connexion.</p>
+                    </div>
+                    @endif
+                </form>
+
+
             </div>
         </div>
     </main>

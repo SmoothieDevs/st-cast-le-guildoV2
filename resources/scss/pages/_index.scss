@@ -39,13 +39,12 @@ body {
     &.fixed {
         .main-logo {
             top: 50px;
-
             a {
-                span:first-child {
+                div.sup { 
                     font-size: 30px;
                 }
 
-                span:last-child {
+                div.sub { 
                     font-size: 18px;
                 }
             }
@@ -178,16 +177,19 @@ body {
             }
         }
 
-        &.on{
+        &.on {
+
             //switch to close text
-            .menu-text{
-                &::after{
+            .menu-text {
+                &::after {
                     transform: translateY(-100%);
                 }
-                &::before{
+
+                &::before {
                     transform: translateY(0%);
                 }
             }
+
             //switch 3 bar to close cross with 2 bars
             .menu-bar {
                 span {
@@ -212,6 +214,11 @@ body {
 
             }
         }
+
+        @media all and (max-width: 768px) {
+            right: 2rem;
+            top: 2rem;
+        }
     }
 
 
@@ -229,28 +236,36 @@ body {
             display: flex;
             flex-direction: column;
 
-            span:first-child {
-                font-family: $font1;
+            div.sup {
                 font-size: 70px;
-                font-weight: 400;
                 line-height: 110%;
-                letter-spacing: 0em;
-                text-align: center;
-                transform: translate(0, 30px);
-                opacity: 0;
-                transition: color ease-in-out .5s;
+                overflow: hidden;
+                font-weight: 400;
+
+                .char {
+                    display: inline-block;
+                    font-family: $font1;
+                    letter-spacing: 0em;
+                    text-align: center;
+                    transform: translate(0, 100%);
+                    transition: color ease-in-out .5s;
+                }
             }
 
-            span:last-child {
-                font-family: $font1;
+            div.sub {
+                overflow: hidden;
                 font-size: 30px;
-                font-weight: 500;
-                transform: translate(0, 25px);
                 line-height: 110%;
-                letter-spacing: 0em;
-                text-align: center;
-                opacity: 0;
-                transition: color ease-in-out .5s;
+                font-weight: 500;
+
+                .char {
+                    display: inline-block;
+                    font-family: $font1;
+                    transform: translate(0, 100%);
+                    letter-spacing: 0em;
+                    text-align: center;
+                    transition: color ease-in-out .5s;
+                }
             }
         }
     }
@@ -298,6 +313,24 @@ body {
                 line-height: 16px;
                 padding-left: 0.5rem;
                 padding-right: 0.5rem;
+            }
+        }
+        @media all and (max-width: 768px) {
+            top: 2rem;
+            left: 2rem;
+        }
+        @media all and (max-width: 576px) {
+            
+            .temperature{
+                display: none;
+            }
+            .lieu{
+                display: none;
+            }
+            .time {
+                span {
+                    display: none;
+                }
             }
         }
     }

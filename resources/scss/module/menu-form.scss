@@ -1,23 +1,19 @@
 .menu-form {
     position: fixed;
     z-index: 50;
-    bottom: 60px;
+    bottom: -100px;
     left: 50%;
     transform: translateX(-50%);
     background-color: white;
     border-radius: 20px;
     padding: 12px 20px;
-    width: calc(100% - 40px);
+    width: 64px;
+    min-height: 64px;
     max-width: 1550px;
-    transition: all .6s ease-in-out;
-
-    &.off {
-        bottom: 0px;
-        transform: translate(-50%,100%);
-    }
 
     form {
-        display: flex;
+        opacity: 0;
+        display: none;
         flex-wrap: wrap;
         width: 100%;
         justify-content: space-between;

@@ -22,7 +22,7 @@ function getData(d) {
     }
     let timeText = document.querySelector('time.time')
     timeText.innerHTML = new Date().toLocaleTimeString("fr-FR",options) + "<span>|</span>"
-    setInterval(()=>timeText.innerHTML = new Date().toLocaleTimeString("fr-FR",options) + "<span>|</span>",1000)
+    setInterval(()=>timeText.innerHTML = new Date().toLocaleTimeString("fr-FR",options) + "<span>|</span>",30000)
 }
 
 getWeather(getData)

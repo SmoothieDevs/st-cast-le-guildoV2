@@ -19,6 +19,7 @@ nav {
     }
 
     &.on {
+        pointer-events: all;
         .nav-bg {
             background-color: $color2;
             transition: opacity .5s ease-in-out;
@@ -57,7 +58,6 @@ nav {
         display: flex;
         flex-direction: column;
         li {
-            pointer-events: all;
             overflow: hidden;
             display: flex;
             align-items: center;
