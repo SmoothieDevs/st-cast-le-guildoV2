@@ -76,6 +76,26 @@ body {
     z-index: 1;
     width: 100%;
 
+    .btn-logout-w{
+        pointer-events: all;
+        cursor: pointer;
+        border: none;
+        outline: 0;
+        background: none;
+        position: fixed;
+        transition: color ease-in-out .5s;
+        display: inline-flex;
+        align-items: center;
+        z-index: 999;
+        right: 6.5rem;
+        top: 3rem;
+        font-size: 13px;
+        font-weight: 550;
+        line-height: 16px;
+        color: $color2;
+        font-family: $font2;
+    }
+
     .btn-menu {
         pointer-events: all;
         cursor: pointer;

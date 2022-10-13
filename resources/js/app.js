@@ -19,6 +19,7 @@ import "./weatherAPI.js";
 import "./section2";
 import "./footer";
 import "./login";
+import "./dashboard";
 
 document.addEventListener("DOMContentLoaded", function () {
     

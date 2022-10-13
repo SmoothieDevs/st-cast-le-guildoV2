@@ -7,7 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Connexion | Cézembre Le-Guildo</title>
-
     <!-- Scripts -->
     @vite(['resources/css/loader.css','resources/js/loader.js'])
     @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/scss/app.scss'])
@@ -44,22 +43,30 @@
         </div>
     </div>
     <nav>
-    <div class="nav-bg"></div>
-    <div class="nav-container">
-      <div class="nav-wrapper">
-        <div class="nav-wrapper-l">
-          <ul>
-            <li><div class="link-number"><span>01</span></div><a class="accueil" href="/">Accueil</a></li>
-            <li><div class="link-number"><span>02</span></div><a class="st-cast" href="/#section2">St-Cast</a></li>
-            <li><div class="link-number"><span>03</span></div><a class="appartement" href="/#section4">Appartement</a></li>
-            <li><div class="link-number"><span>04</span></div><a class="contact" href="/#section6">Contact</a></li>
-          </ul>
-        </div>
-        <div class="nav-wrapper-r"></div>
-      </div>
+        <div class="nav-bg"></div>
+        <div class="nav-container">
+            <div class="nav-wrapper">
+                <div class="nav-wrapper-l">
+                    <ul>
+                        <li>
+                            <div class="link-number"><span>01</span></div><a class="accueil" href="/">Accueil</a>
+                        </li>
+                        <li>
+                            <div class="link-number"><span>02</span></div><a class="st-cast" href="/#section2">St-Cast</a>
+                        </li>
+                        <li>
+                            <div class="link-number"><span>03</span></div><a class="appartement" href="/#section4">Appartement</a>
+                        </li>
+                        <li>
+                            <div class="link-number"><span>04</span></div><a class="contact" href="/#section6">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="nav-wrapper-r"></div>
+            </div>
 
-    </div>
-  </nav>
+        </div>
+    </nav>
     <main id="login">
         <div class="wrapper">
             <div class="form-wrapper">
@@ -81,8 +88,6 @@
                     </div>
                     @endif
                 </form>
-
-
             </div>
         </div>
     </main>

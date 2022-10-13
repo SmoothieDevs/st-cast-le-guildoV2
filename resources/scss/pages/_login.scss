@@ -1,7 +1,6 @@
 main#login {
     padding: 100px 20px;
     height: 100vh;
-
     .wrapper {
         height: 100%;
         display: flex;
@@ -9,7 +8,6 @@ main#login {
         align-items: center;
         justify-content: center;
     }
-
     .form-wrapper {
         display: flex;
         align-items: center;
@@ -50,6 +48,9 @@ main#login {
 
         .input-wrapper {
             width: 100%;
+            &:nth-of-type(2) {
+                margin-top: 30px;
+            }
         }
 
         input {
