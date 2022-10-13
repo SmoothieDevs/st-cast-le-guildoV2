@@ -7,7 +7,7 @@ use App\Models\Booking;
 use App\Enums\BookingStatus;
 use Illuminate\Http\Request;
 use App\Mail\BookingConfirmed;
-use App\Events\BookingCancelled;
+use App\Events\BookingCancelled as BookingCancelledEvent;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Auth\Events\Registered;
@@ -149,7 +149,7 @@ class BookingController extends Controller
             abort(403, 'This booking is no longer active.');
         } elseif ($booking->status === BookingStatus::Validated) {
             // Evènement écouté dans BookingStatusEventSubscriber
-            event(new BookingCancelled($booking));
+            event(new BookingCancelledEvent($booking));
         } else {
             $booking->delete();
         }
