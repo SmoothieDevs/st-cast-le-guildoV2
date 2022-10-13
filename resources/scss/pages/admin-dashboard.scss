@@ -3,15 +3,11 @@ main#admin-dashboard {
     height: 100vh;
     pointer-events: all;
 
-    .wrapper-dashboard {
-        height: 100%;
-        display: flex;
+    .wrapper-top {
         width: 100%;
-        align-items: center;
-        justify-content: center;
 
         .title {
-
+            margin-bottom: 30px;
             position: relative;
             width: 100%;
 
@@ -36,6 +32,58 @@ main#admin-dashboard {
             }
         }
 
+    }
+
+    .wrapper-dashboard {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+
+    .key-number {
+        width: 200px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin: 0 15px;
+        height: 200px;
+        border-radius: 100px;
+        padding: 10px 30px;
+        border: solid 1px $color2;
+        margin-bottom: 30px;
+
+        .number {
+            font-family: $font1;
+            text-align: center;
+            color: $color2;
+            font-weight: 400;
+            font-size: 60px;
+            line-height: 150%;
+        }
+
+        .key {
+            font-weight: 400;
+            font-size: 20px;
+            line-height: 150%;
+            text-align: center;
+            font-family: $font3;
+            color: rgba(34, 40, 40, 0.5);
+        }
+    }
+
+    .wrapper-numbers {
+        width: 45%;
+        margin: 0 -15px;
+        justify-content: space-between;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .wrapper-calendar {
+        width: 55%;
+        border-left: solid 1px $color2;
     }
 
     .wrapper-reservation {
@@ -77,8 +125,10 @@ main#admin-dashboard {
     }
 
     table {
+        pointer-events: all;
         width: 100%;
         text-align: left;
+
         thead {
             th {
                 padding: 10px 0px;
@@ -90,7 +140,8 @@ main#admin-dashboard {
                 color: rgba(34, 40, 40, 0.5);
             }
         }
-        tbody{
+
+        tbody {
             td {
                 border-top: 1px solid #E5E5E5;
                 padding: 10px 0px;
@@ -100,8 +151,14 @@ main#admin-dashboard {
                 font-family: $font3;
                 line-height: 150%;
                 color: $color2;
-                a{
-                    
+
+                a {
+                    color: $color2;
+                    transition: color .3s ease-in-out;
+
+                    &:hover {
+                        color: $color1;
+                    }
                 }
             }
         }
