@@ -5,6 +5,7 @@ use App\Providers\RouteServiceProvider;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BookingController;
+use App\Http\Controllers\ContactController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,6 +26,9 @@ Route::get('admin/login', [AdminController::class, 'login'])->middleware('guest'
 Route::post('admin/login', [AdminController::class, 'store'])->middleware('guest')->name('admin.login');
 
 Route::resource('booking', BookingController::class);
+
+Route::get('contact', [ContactController::class, 'index'])->name('contact.index');
+Route::post('contact', [ContactController::class, 'send'])->name('contact.send');
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('dashboard', [UserController::class, 'dashboard'])->name('dashboard');
