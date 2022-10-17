@@ -44,7 +44,7 @@
         </form>
     </div>
     <main id="admin-dashboard">
-        <div class="container-s">
+        <div class="container">
             <div class="wrapper-top">
                 <div class="title">
                     <h3>Tableau de bord</h3>
@@ -56,19 +56,21 @@
                             <p class="key">Réservations</p>
                         </div>
                         <div class="key-number">
-                        <p class="number">158</p>
+                            <p class="number">158</p>
                             <p class="key">Jours disponibles</p>
                         </div>
                         <div class="key-number">
-                        <p class="number">2</p>
+                            <p class="number">2</p>
                             <p class="key">Réservations en attentes</p>
                         </div>
                         <div class="key-number">
-                        <p class="number">3758</p>
+                            <p class="number">3758</p>
                             <p class="key">Euros reçu</p>
                         </div>
                     </div>
-                    <div class="wrapper-calendar"></div>
+                    <div class="wrapper-calendar">
+                        <input id="datepicker" />
+                    </div>
                 </div>
             </div>
             <div class="wrapper-reservation">
@@ -89,12 +91,12 @@
                     <tbody>
                         @foreach ($bookings as $booking)
                         <tr>
-                        
+
                             <td> <a href="mailto:{{ $booking->user->email }}">{{ $booking->user->email }}</a></td>
                             <td>{{ $booking->start->isoFormat('Do MMM YYYY') }}</td>
                             <td>{{ $booking->end->isoFormat('Do MMM YYYY') }}</td>
                             <td>{{ $booking->nb_people }}</td>
-                            <td>{{ $booking->status->label() }}</td>
+                            <td class="{{ str_replace('-', ' ', strtolower($booking->status->label())) }}">{{ $booking->status->label() }}</td>
                             <td>
                                 @if(isset($booking->actions))
                                 @foreach ($booking->actions as $value => $action)

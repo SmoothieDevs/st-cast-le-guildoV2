@@ -16,7 +16,13 @@
         "vite": "^3.0.0"
     },
     "dependencies": {
+        "@easepick/amp-plugin": "^1.2.0",
+        "@easepick/bundle": "^1.2.0",
+        "@easepick/core": "^1.2.0",
+        "@easepick/lock-plugin": "^1.2.0",
+        "@easepick/range-plugin": "^1.2.0",
         "gsap": "^3.11.1",
+        "litepicker": "^2.0.12",
         "siema": "^1.5.1",
         "splitting": "^1.0.6"
     }

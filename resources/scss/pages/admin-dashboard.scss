@@ -3,6 +3,15 @@ main#admin-dashboard {
     height: 100vh;
     pointer-events: all;
 
+    .container {
+        width: 100%;
+        max-width: 1300px;
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
     .wrapper-top {
         width: 100%;
 
@@ -32,6 +41,27 @@ main#admin-dashboard {
             }
         }
 
+    }
+
+    .pending,
+    .pending-confirmation,
+    .pending-verification.pending-payment {
+        color: #FF9F46;
+    }
+
+    .Validated,
+    .validated {
+        color: #86D985;
+    }
+
+    .cancelled,
+    .Cancelled {
+        color: #FF4D4F;
+    }
+
+    .Finished,
+    .finished {
+        color: $color1;
     }
 
     .wrapper-dashboard {
@@ -74,7 +104,7 @@ main#admin-dashboard {
     }
 
     .wrapper-numbers {
-        width: 45%;
+        width: 40%;
         margin: 0 -15px;
         justify-content: space-between;
         display: flex;
@@ -82,8 +112,11 @@ main#admin-dashboard {
     }
 
     .wrapper-calendar {
-        width: 55%;
+        width: 60%;
         border-left: solid 1px $color2;
+        input{
+            display: none;
+        }
     }
 
     .wrapper-reservation {
