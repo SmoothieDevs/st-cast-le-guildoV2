@@ -32,4 +32,9 @@ class BookingAvailability extends Model
     'from' => 'date:Y-m-d',
     'to' => 'date:Y-m-d',
   ];
+
+  public static function getAvailableDates()
+  {
+      return Booking::whereDate('to', '>=', now())->select('from', 'to')->get();
+  }
 }
