@@ -5,8 +5,9 @@
         {{ Session::get('success') }}
     </div>
     @endif
-    <form method="POST" action="{{ route('contact.send') }}">
+    <form method="POST" action="{{ route('contact.create') }}">
         @csrf
+        @honeypot
         <div>
             <label for="name">Votre nom: </label>
             <input type="text" id="name" placeholder="Nom Prénom" name="name" required>

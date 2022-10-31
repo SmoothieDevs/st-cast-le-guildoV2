@@ -2,10 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Providers\RouteServiceProvider;
+use Spatie\Honeypot\ProtectAgainstSpam;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BookingController;
-use App\Http\Controllers\ContactController;
+use App\Http\Controllers\ContactFormSubmissionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,8 +28,8 @@ Route::post('admin/login', [AdminController::class, 'store'])->middleware('guest
 
 Route::resource('booking', BookingController::class);
 
-Route::get('contact', [ContactController::class, 'index'])->name('contact.index');
-Route::post('contact', [ContactController::class, 'send'])->name('contact.send');
+Route::get('contact', [ContactFormSubmissionController::class, 'index'])->name('contact.index');
+Route::post('contact', [ContactFormSubmissionController::class, 'create'])->name('contact.create')->middleware(ProtectAgainstSpam::class);
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('dashboard', [UserController::class, 'dashboard'])->name('dashboard');
