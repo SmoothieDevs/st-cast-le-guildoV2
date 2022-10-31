@@ -6,6 +6,7 @@ use Spatie\Honeypot\ProtectAgainstSpam;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BookingController;
+use App\Http\Controllers\BookingAvailabilityController;
 use App\Http\Controllers\ContactFormSubmissionController;
 
 /*
@@ -42,6 +43,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
         })->name('admin.dashboard');
 
         Route::post('booking/{booking}/confirm', [BookingController::class, 'confirm'])->middleware('can:update,booking')->name('booking.confirm');
+
+        Route::apiResource('availability', BookingAvailabilityController::class)->except(['show']);
     });
 });
 
