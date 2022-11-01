@@ -43,38 +43,35 @@
             </button>
         </form>
     </div>
-    <nav>
-        <div class="nav-bg"></div>
-        <div class="nav-container">
-            <div class="nav-wrapper">
-                <div class="nav-wrapper-l">
-                    <ul>
-                        <li>
-                            <div class="link-number"><span>01</span></div><a class="accueil" href="/">Accueil</a>
-                        </li>
-                        <li>
-                            <div class="link-number"><span>02</span></div><a class="st-cast" href="/#section2">St-Cast</a>
-                        </li>
-                        <li>
-                            <div class="link-number"><span>03</span></div><a class="appartement" href="/#section4">Appartement</a>
-                        </li>
-                        <li>
-                            <div class="link-number"><span>04</span></div><a class="contact" href="/#section6">Contact</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="nav-wrapper-r"></div>
-            </div>
-
-        </div>
-    </nav>
     <main id="admin-dashboard">
-        <div class="container-s">
-            <div class="wrapper-dashboard">
+        <div class="container">
+            <div class="wrapper-top">
                 <div class="title">
                     <h3>Tableau de bord</h3>
                 </div>
-
+                <div class="wrapper-dashboard">
+                    <div class="wrapper-numbers">
+                        <div class="key-number">
+                            <p class="number">30</p>
+                            <p class="key">Réservations</p>
+                        </div>
+                        <div class="key-number">
+                            <p class="number">158</p>
+                            <p class="key">Jours disponibles</p>
+                        </div>
+                        <div class="key-number">
+                            <p class="number">2</p>
+                            <p class="key">Réservations en attentes</p>
+                        </div>
+                        <div class="key-number">
+                            <p class="number">3758</p>
+                            <p class="key">Euros reçu</p>
+                        </div>
+                    </div>
+                    <div class="wrapper-calendar">
+                        <input id="datepicker" />
+                    </div>
+                </div>
             </div>
             <div class="wrapper-reservation">
                 <div class="title">
@@ -94,17 +91,18 @@
                     <tbody>
                         @foreach ($bookings as $booking)
                         <tr>
+
                             <td> <a href="mailto:{{ $booking->user->email }}">{{ $booking->user->email }}</a></td>
-                            <td>{{ $booking->start->format('d/m/Y') }}</td>
-                            <td>{{ $booking->end->format('d/m/Y') }}</td>
+                            <td>{{ $booking->start->isoFormat('Do MMM YYYY') }}</td>
+                            <td>{{ $booking->end->isoFormat('Do MMM YYYY') }}</td>
                             <td>{{ $booking->nb_people }}</td>
-                            <td>{{ $booking->status->label() }}</td>
+                            <td class="{{ str_replace('-', ' ', strtolower($booking->status->label())) }}">{{ $booking->status->label() }}</td>
                             <td>
                                 @if(isset($booking->actions))
                                 @foreach ($booking->actions as $value => $action)
-                                <form method="POST" action="{{ $action }}" style="display: inline;">
+                                <form method="POST" action="{{ $action }}">
                                     @csrf
-                                    <button type="submit" class="underline text-sm text-gray-600 hover:text-gray-900">
+                                    <button type="submit">
                                         {{ __($value) }}
                                     </button>
                                 </form>
