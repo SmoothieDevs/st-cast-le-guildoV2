@@ -144,27 +144,34 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
 
-        tlNextDate.to(".first-step", { opacity: 0, duration: 1, ease: "power4.out", onComplete: function(){
-            document.querySelector(".first-step").style.display = "none";
-            document.querySelector(".second-step").style.display = "flex";
-            gsap.to(".second-step", { opacity: 1, duration: 1, ease: "power4.out" });
-        } }, "next");
+        if (dateBackButton != null && dateNextButton != null) {
+            dateBackButton.addEventListener("click", function () {
+                tlBackDate.play(0);
+            });
+            dateNextButton.addEventListener("click", function () {
+                if (inputDateArrive.value && inputDateDepart.value) {
+                    tlNextDate.play(0);
+                }
+            });
 
-        dateNextButton.addEventListener("click", function () {
-            if (inputDateArrive.value && inputDateDepart.value) {
-                tlNextDate.play(0);
-            }
-        });
+            tlNextDate.to(".first-step", {
+                opacity: 0, duration: 1, ease: "power4.out", onComplete: function () {
+                    document.querySelector(".first-step").style.display = "none";
+                    document.querySelector(".second-step").style.display = "flex";
+                    gsap.to(".second-step", { opacity: 1, duration: 1, ease: "power4.out" });
+                }
+            }, "next");
 
-        dateBackButton.addEventListener("click", function () {
-            tlBackDate.play(0);
-        });
+            tlBackDate.to(".second-step", {
+                opacity: 0, duration: 1, ease: "power4.out", onComplete: function () {
+                    document.querySelector(".first-step").style.display = "flex";
+                    document.querySelector(".second-step").style.display = "none";
+                    gsap.to(".first-step", { opacity: 1, duration: 1, ease: "power4.out" });
+                }
+            }, "back");
+        }
 
-        tlBackDate.to(".second-step", { opacity: 0, duration: 1, ease: "power4.out", onComplete: function(){ 
-            document.querySelector(".first-step").style.display = "flex";
-            document.querySelector(".second-step").style.display = "none";
-            gsap.to(".first-step", { opacity: 1, duration: 1, ease: "power4.out" });
-        }}, "back");
+
 
         function openDateSelector() {
             dateSelector.classList.add("on");
@@ -239,15 +246,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
         let reservationBarTl = gsap.timeline({ paused: true })
         let hideReservationBarTl = gsap.timeline({ paused: true }).to(reservation, { bottom: -100, duration: .6, ease: "power2.inOut" });
-        const clamp = (num, min, max) => Math.min(Math.max(num, min), max);
-        let reservationBarWidth = clamp(window.innerWidth, 0, 1550);
 
-
-        reservationBarTl.to(reservation, { delay: 1, bottom: 60, duration: 1, ease: "power2.inOut" }, 'start')
-            .to(reservation, { scaleX: 1, duration: 1.8, width: reservationBarWidth, delay: 2, ease: "power1.inOut", onComplete: function () { reservationForm.style.display = "flex" } }, 'start')
+        reservationBarTl.to(reservation, { scaleX: 1, duration: 1.8, delay: 2, ease: "power1.inOut", onComplete: function () { reservationForm.style.display = "flex" } }, 'start')
             .to(reservationForm, { duration: 1, opacity: 1, ease: "power3.inOut" })
 
-        /* reservationBarTl.play(); */
+        reservationBarTl.play();
 
         //////////// SCROLLING ////////////
         let sectionWhite = document.querySelectorAll('section[data-color="white"]');
@@ -307,7 +310,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 } else {
                     BlackTransitionTopValue.forEach(elem => {
                         if (document.documentElement.scrollTop + 100 > elem && document.documentElement.scrollTop < elem + 300) {
-                            if (navOpen == false) {
+                            if (!navOpen && !dateSelectorOpen) {
                                 document.body.classList.add("black")
                             }
                             actualNavColor = 1;
@@ -328,7 +331,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 } else {
                     BlackTransitionBottomValue.forEach(elem => {
                         if (document.documentElement.scrollTop < elem && document.documentElement.scrollTop > elem - 300) {
-                            if (navOpen == false) {
+                            if (!navOpen && !dateSelectorOpen) {
                                 document.body.classList.add("black")
                             }
                             actualNavColor = 1

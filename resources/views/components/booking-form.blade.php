@@ -26,7 +26,7 @@
                 </div>
                 @else
                 <div class="wrapper-input submit">
-                    <input type="submit" value="">
+                    <button type="submit"></button>
                 </div>
                 @endif
             </div>
@@ -38,23 +38,23 @@
                     <button type="button"></button>
                 </div>
                 <div class="wrapper-input email">
-                    <label></label>
+                    <div class="icon"></div>
                     <input type="email" id="email" placeholder="Adresse E-mail" name="email" value="{{ old('email') }}" required>
                 </div>
             </div>
             <div class="ss-center">
                 <div class="wrapper-input prenom">
-                    <label></label>
+                    <div class="icon"></div>
                     <input type="text" id="prenom" placeholder="Prénom" name="firstname" value="{{ old('firstname') }}" required>
                 </div>
             </div>
             <div class="ss-right">
                 <div class="wrapper-input nom">
-                    <label></label>
+                    <div class="icon"></div>
                     <input type="text" id="nom" placeholder="Nom" name="lastname" value="{{ old('lastname') }}" required>
                 </div>
                 <div class="wrapper-input submit">
-                    <input type="submit" value="">
+                    <button type="submit"></button>
                 </div>
             </div>
         </div>

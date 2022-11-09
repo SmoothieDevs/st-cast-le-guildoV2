@@ -4,7 +4,7 @@ function getWeather(callback) {
     let obj
     fetch(url).then(response => response.json())
         .then(data => {
-            console.log(data)
+            /* console.log(data) */
             obj = data
         })
         .then(() => callback(obj))
@@ -14,15 +14,15 @@ function getWeather(callback) {
 }
 
 function getData(d) {
-    document.querySelector('.temperature').innerHTML = "<span>|</span>" + parseInt(d.main.temp) + "°c"
+    document.querySelector('.temperature').innerHTML = parseInt(d.main.temp) + "°c"
     let options = {
         timeZone: 'Europe/Paris',
         hour: 'numeric',
         minute: 'numeric'
     }
     let timeText = document.querySelector('time.time')
-    timeText.innerHTML = new Date().toLocaleTimeString("fr-FR",options) + "<span>|</span>"
-    setInterval(()=>timeText.innerHTML = new Date().toLocaleTimeString("fr-FR",options) + "<span>|</span>",30000)
+    timeText.innerHTML = new Date().toLocaleTimeString("fr-FR",options)
+    setInterval(()=>timeText.innerHTML = new Date().toLocaleTimeString("fr-FR",options),30000)
 }
 
 getWeather(getData)

@@ -21,17 +21,25 @@ body {
         .station {
             color: $color2;
             transition: color ease-in-out .5s;
+
+            .lieu,
+            .temperature {
+                border-color: $color2;
+                transition: border-color ease-in-out .5s;
+            }
         }
 
-        .btn-resa{
+        .btn-resa {
             border-color: $color2;
-            a{
+
+            a {
                 color: $color2;
             }
         }
 
         .btn-menu {
             color: $color2;
+
             .menu-bar {
                 span {
                     background-color: $color2;
@@ -43,6 +51,7 @@ body {
     &.fixed {
         .main-logo {
             top: 50px;
+
             a {
                 div.sup {
                     font-size: 30px;
@@ -121,6 +130,7 @@ body {
         margin-right: 5px;
         transition: border ease-in-out .5s;
         border-right: solid white 1px;
+
         a {
             outline: 0;
             text-transform: uppercase;
@@ -345,7 +355,10 @@ body {
             font-size: 12px;
             font-weight: 500;
             line-height: 16px;
-
+            padding-left: 10px;
+            margin-left: 10px;
+            border-left: solid white 1px;
+            transition: border-color ease-in-out .5s;
         }
 
         .time {
@@ -360,6 +373,12 @@ body {
         }
 
         .temperature {
+
+            padding-left: 10px;
+            margin-left: 10px;
+            border-left: solid white 1px;
+            transition: border-color ease-in-out .5s;
+
             span {
                 transform: translate3d(0, -10px, 0);
                 font-size: 12px;
@@ -370,30 +389,30 @@ body {
             }
         }
 
-        @media all and (max-width: 768px) {
-            top: 2rem;
+
+    }
+
+    @media all and (max-width: 1000px) {
+        .station {
             left: 2rem;
         }
 
-        @media all and (max-width: 576px) {
+        .tl-wrapper {
+            right: 2rem;
+        }
 
-            .temperature {
-                display: none;
-            }
+    }
 
+    @media all and (max-width: 776px) {
+        .station {
             .lieu {
                 display: none;
             }
-
-            .time {
-                span {
-                    display: none;
-                }
-            }
         }
+
+        .tl-wrapper {}
     }
 }
-
 
 .main-page {
     overflow: hidden;

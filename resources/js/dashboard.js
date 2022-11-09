@@ -17,11 +17,11 @@ document.addEventListener('DOMContentLoaded', function () {
         tl.play();
 
         //////////// Datepicker pour l'utilisateur ////////////
-        
+
 
         //////////// Datepicker pour l'admin ////////////
         // Affichage des périodes marquées disponibles et des périodes réservées pour autorisation/bloquage des dates
-        /* fetch('/api/availabilities')
+        fetch('/api/availabilities')
             .then((response) => response.json())
             .then((data) => {
                 const availableRanges = data.data.availabilities.map(d => [new DateTime(d['from'], 'YYYY-MM-DD'), new DateTime(d['to'], 'YYYY-MM-DD')]);
@@ -52,14 +52,12 @@ document.addEventListener('DOMContentLoaded', function () {
                     setup(picker) {
                         picker.on('view', (evt) => {
                             const { view, date, target } = evt.detail;
-
                             if (view === 'CalendarDay' && !date.inArray(availableRanges) && !target.classList.contains('not-available')) {
-                                target.style.backgroundColor = 'tomato';
-                                target.style.color = 'black';
+                                target.style.color = 'orange';
                             }
                         });
                     }
                 })
-            }); */
+            })
     }
 });
