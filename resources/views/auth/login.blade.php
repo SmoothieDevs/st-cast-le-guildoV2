@@ -52,13 +52,16 @@
                             <div class="link-number"><span>01</span></div><a class="accueil" href="/">Accueil</a>
                         </li>
                         <li>
-                            <div class="link-number"><span>02</span></div><a class="st-cast" href="/#section2">St-Cast</a>
+                            <div class="link-number"><span>02</span></div><a class="st-cast"
+                                href="/#section2">St-Cast</a>
                         </li>
                         <li>
-                            <div class="link-number"><span>03</span></div><a class="appartement" href="/#section4">Appartement</a>
+                            <div class="link-number"><span>03</span></div><a class="appartement"
+                                href="/#section4">Appartement</a>
                         </li>
                         <li>
-                            <div class="link-number"><span>04</span></div><a class="contact" href="/#section6">Contact</a>
+                            <div class="link-number"><span>04</span></div><a class="contact"
+                                href="/#section6">Contact</a>
                         </li>
                     </ul>
                 </div>
@@ -88,6 +91,27 @@
                     </div>
                     @endif
                 </form>
+                @if (session('status') == 'email-not-verified')
+                <div class="login-message">
+                    <div>
+                        Pour continuer votre réservation veuillez valider votre adresse email en cliquant sur le lien
+                        que nous venons de vous envoyer par mail.
+                    </div>
+                    <form method="POST" action="{{ route('verification.send') }}">
+                        @csrf
+                        <div>
+                            <button type="submit" class="btn btn-logic">
+                                Renvoyer un mail de vérification
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                @endif
+                @if (session('status') == 'verification-link-sent')
+                <div class="login-message">
+                    Un nouveau lien de vérification a été envoyé à l'adresse utilisée lors de votre inscription.
+                </div>
+                @endif
             </div>
         </div>
     </main>
