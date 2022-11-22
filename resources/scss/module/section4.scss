@@ -63,22 +63,61 @@ section.section4{
 
         .item {
             overflow: hidden;
-            position: relative;
             &#item-4 {
-                max-width: 600px;
+                max-width: 80%;
                 height: auto;
-                left: 50px;
-                top: 50px;
-                transform: translateY(50%) rotate(-9deg);
+                margin: 0 auto;
+                transform: translate(0,0) rotate(-9deg);
             }
 
             &#item-5 {
                 position: absolute;
-                max-width: 300px;
+                max-width: 30%;
                 height: auto;
-                right: 50px;
-                bottom: -180px;
-                transform: translateY(100%) rotate(15deg);
+                right: 0%;
+                top: 80%;
+                transform: translate(-0%,-50%) rotate(12deg);
+            }
+        }
+    }
+
+    @media all and (max-width:768px) {
+        padding-top: 100px;
+        padding-bottom: 30px;
+        .wrapper {
+            flex-direction: column;
+        }
+
+        .wrapper-top{
+            margin-bottom: 50px;
+            * {
+                font-size: 40px;
+            }
+        }
+
+        .wrapper-left {
+            width: 100%;
+            padding: 0;
+            margin-top: 20px;
+        }
+
+        .wrapper-right{
+            margin-top: 140px;
+            width: 100%;
+            padding: 0;
+        }
+
+        .title {
+            * {
+                font-size: 35px;
+            }
+        }
+
+        .description {
+            max-width: 500px;
+
+            p {
+                font-style: italic;
             }
         }
     }

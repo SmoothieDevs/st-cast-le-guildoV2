@@ -91,7 +91,6 @@ body {
 
     .btn-logout-w {
         pointer-events: all;
-
         border: none;
         outline: 0;
         background: none;
@@ -110,6 +109,7 @@ body {
     }
 
     .tl-wrapper {
+        opacity: 0;
         pointer-events: all;
         cursor: pointer;
         border: none;
@@ -403,14 +403,47 @@ body {
 
     }
 
-    @media all and (max-width: 776px) {
+    @media all and (max-width: 768px) {
         .station {
-            .lieu {
+            .lieu,.temperature,.time {
                 display: none;
+            }
+            .btn-resa{
+                border: none;
             }
         }
 
-        .tl-wrapper {}
+        .main-logo {
+            a {
+                div.sup {
+                    font-size: 40px;
+                    .char {
+                        display: inline-block;
+                        font-family: $font1;
+                        letter-spacing: 0em;
+                        text-align: center;
+                        transform: translate(0, 100%);
+                        transition: color ease-in-out .5s;
+                    }
+                }
+
+                div.sub {
+                    overflow: hidden;
+                    font-size: 30px;
+                    line-height: 110%;
+                    font-weight: 500;
+
+                    .char {
+                        display: inline-block;
+                        font-family: $font1;
+                        transform: translate(0, 100%);
+                        letter-spacing: 0em;
+                        text-align: center;
+                        transition: color ease-in-out .5s;
+                    }
+                }
+            }
+        }
     }
 }
 

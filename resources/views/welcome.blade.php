@@ -31,7 +31,7 @@
     <p class="lieu">Saint-Cast-le-Guildo</p>
     <p class="temperature"></p>
   </div>
-  <div class=" tl-wrapper">
+  <div class="tl-wrapper">
       <div class="btn-resa">
         <a href="/login">Ma réservation</a>
       </div>
@@ -95,9 +95,9 @@
           </div>
           <div class="wrapper-right">
             <figure id="figure-1">
-              <img id="item-1" loading="lazy" class="item" data-transform="translate(0px,-200px) rotate(3deg)" src="{{ asset('images/st-cast/St-Cast-section1.1.jpg')}}" alt="Image du port">
-              <img id="item-2" loading="lazy" class="item" data-transform="translate(0px,-200px) rotate(-5deg)" src="{{ asset('images/st-cast/St-Cast-section1.3.jpg')}}" alt="La mer">
-              <img id="item-3" loading="lazy" class="item" data-transform="translate(0px,-200px) rotate(1deg)" src="{{ asset('images/st-cast/St-Cast-section1.2.jpg')}}" alt="la Cote">
+              <img id="item-1" loading="lazy" class="item" data-transform="translate(0,100px) rotate(3deg)" src="{{ asset('images/st-cast/St-Cast-section1.1.jpg')}}" alt="Image du port">
+              <img id="item-2" loading="lazy" class="item" data-transform="translate(-0%,100px) rotate(-5deg)" src="{{ asset('images/st-cast/St-Cast-section1.3.jpg')}}" alt="La mer">
+              <img id="item-3" loading="lazy" class="item" data-transform="translate(-0%,100px) rotate(1deg)" src="{{ asset('images/st-cast/St-Cast-section1.2.jpg')}}" alt="la Cote">
             </figure>
           </div>
         </div>
@@ -169,8 +169,8 @@
         <div class="wrapper">
           <div class="wrapper-left">
             <figure id="figure-2">
-              <img id="item-4" loading="lazy" class="item" data-transform="translate(0,-330px) rotate(2.3deg)" src="{{ asset('images/st-cast/Appartement1.jpg')}}" alt="Image du port">
-              <img id="item-5" loading="lazy" class="item" data-transform="translate(0,-330px) rotate(-9.3deg)" src="{{ asset('images/st-cast/Appartement2.jpg')}}" alt="La mer">
+              <img id="item-4" loading="lazy" class="item" data-transform="translate(0,100px) rotate(2.3deg)" src="{{ asset('images/st-cast/Appartement1.jpg')}}" alt="Image du port">
+              <img id="item-5" loading="lazy" class="item" data-transform="translate(0%,100px) rotate(-9.3deg)" src="{{ asset('images/st-cast/Appartement2.jpg')}}" alt="La mer">
             </figure>
           </div>
           <div class="wrapper-right">
@@ -217,21 +217,17 @@
           </div>
           <div class="wrapper-right">
             <figure id="figure-3">
-              <img id="item-6" loading="lazy" class="item" data-transform="translate(0,-150px) rotate(-2.8deg)" src="{{ asset('images/st-cast/Appartement3.jpg')}}" alt="Image du port">
-              <img id="item-7" loading="lazy" class="item" data-transform="translate(0,-150px) rotate(1deg)" src="{{ asset('images/st-cast/Appartement4.jpg')}}" alt="La mer">
+              <img id="item-6" loading="lazy" class="item" data-transform="translate(0,-100px) rotate(-2.8deg)" src="{{ asset('images/st-cast/Appartement3.jpg')}}" alt="Image du port">
+              <img id="item-7" loading="lazy" class="item" data-transform="translate(-0%,-100px) rotate(1deg)" src="{{ asset('images/st-cast/Appartement4.jpg')}}" alt="La mer">
             </figure>
           </div>
         </div>
     </section>
-    <section id="section6" class="section6" data-color="white">
+    <footer data-color="white">
       <div class="container-s">
         <div class="wrapper">
-          <div class="wrapper-top">
-            <div class="title">
-              <h3>Une question ? Une envie de réserver ?</h3>
-            </div>
-          </div>
           <div class="wrapper-left">
+            <div class="">
             <p class="description">Vous pouvez nous contacter par mail ou par téléphone</p>
           </div>
           <div class="wrapper-right">
@@ -239,9 +235,9 @@
           </div>
         </div>
       </div>
-    </section>
+</footer>
 
-    <footer>
+    <!-- <footer>
       <div class="container">
         <div class="wrapper">
           <div class="title">
@@ -258,7 +254,7 @@
           <p class="copyright">Fait avec <span></span> par Will</p>
         </div>
       </div>
-    </footer>
+    </footer> -->
   </main>
 </body>
 

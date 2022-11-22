@@ -53,6 +53,9 @@
                     <div class="icon"></div>
                     <input type="text" id="nom" placeholder="Nom" name="lastname" value="{{ old('lastname') }}" required>
                 </div>
+                <div class="wrapper-input back">
+                    <button type="button"></button>
+                </div>
                 <div class="wrapper-input submit">
                     <button type="submit"></button>
                 </div>

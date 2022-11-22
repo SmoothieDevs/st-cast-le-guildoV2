@@ -9,6 +9,7 @@
     border-radius: 20px;
     padding: 12px 20px;
     min-height: 64px;
+
     form {
         opacity: 0;
         display: none;
@@ -51,13 +52,13 @@
         }
     }
 
-    .submit{
+    .submit {
         padding-left: 15px;
         border-left: 1px solid $color1;
     }
 
     button[type="submit"] {
-        
+
         width: 40px;
         position: relative;
         border: none;
@@ -69,10 +70,12 @@
         border-radius: 50%;
         transition: background-color ease-in-out .3s;
         cursor: pointer;
+
         &:hover {
             background-color: $color2;
         }
-        &:before{
+
+        &:before {
             content: "";
             position: absolute;
             width: 20px;
@@ -110,6 +113,7 @@
         border-left: solid 1px $color1;
         padding-left: 15px;
         cursor: pointer;
+
         button {
             position: relative;
             border: none;
@@ -372,6 +376,10 @@
         width: calc(100% / 3);
         padding-left: 15px;
         display: flex;
+
+        .back {
+            display: none;
+        }
     }
 
     #email,
@@ -384,6 +392,7 @@
         border-right: solid 1px $color1;
         padding-right: 15px;
         cursor: pointer;
+
         button {
             position: relative;
             border: none;
@@ -434,6 +443,7 @@
             min-width: 40px;
             max-width: 40px;
             margin-right: 10px;
+            height: 40px;
 
             &::after {
                 content: "";
@@ -528,6 +538,206 @@
                 border-radius: 50%;
                 background-color: $color1;
             }
+        }
+    }
+
+    @media all and (max-width:576px) {
+        left: 0px;
+        right: 0px;
+        bottom: 0;
+        padding: 15px;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+
+        form {}
+
+        .first-step {
+            flex-wrap: wrap;
+
+        }
+
+        .fs-left {
+            width: 100%;
+            padding: 0;
+            margin-bottom: 15px;
+            border-right: none;
+        }
+
+        .fs-right {
+            display: flex;
+            flex-wrap: wrap;
+            width: 100%;
+            padding: 0;
+
+        }
+
+        .personnes {
+            padding: 0;
+            width: 100%;
+
+            .buttons {
+                margin-left: auto;
+            }
+        }
+
+        .next {
+            margin-top: 15px;
+            border-left: 0;
+            padding: 0;
+            width: 100%;
+
+            button {
+                background-color: $color1;
+                width: 100%;
+                border-radius: 50px;
+                transition: background-color 0.3s ease-in-out;
+
+                &:hover {
+                    background-color: $color2;
+
+                    &::after {
+                        right: 7px;
+                    }
+                }
+
+                &::before {
+                    text-align: center;
+                    top: 50%;
+                    left: 50%;
+                    height: auto;
+                    width: 100%;
+                    transform: translate(-50%, -50%);
+                    content: "Suivant";
+                    text-transform: capitalize;
+                    color: white;
+                    font-size: 1.1rem;
+                    line-height: 150%;
+                    font-family: $font2;
+                    font-weight: 300;
+                }
+
+                &::after {
+                    right: 10px;
+                    left: unset;
+                    transition: right 0.3s ease-in-out;
+                }
+            }
+        }
+
+        .ss-left {
+            width: 100%;
+            padding: 0;
+            margin-bottom: 15px;
+            border-right: none;
+
+            .back {
+                display: none;
+            }
+        }
+
+        .ss-right {
+            display: flex;
+            flex-wrap: wrap;
+            width: 100%;
+            padding: 0;
+            justify-content: center;
+            align-items: center;
+
+            .back {
+                width: 50%;
+                margin: 0;
+                display: flex;
+                border-right: none;
+                padding-right: 7px;
+                button {
+                    background-color: $color1;
+                    border-radius: 50px;
+                    transition: background-color 0.3s ease-in-out;
+                    width: 100%;
+
+                    &::before {
+                        background-color: transparent;
+                        text-align: center;
+                        top: 50%;
+                        left: 50%;
+                        height: auto;
+                        width: 100%;
+                        transform: translate(-50%, -50%);
+                        content: "Retour";
+                        text-transform: capitalize;
+                        color: white;
+                        font-size: 1.1rem;
+                        line-height: 150%;
+                        font-family: $font2;
+                        font-weight: 300;
+                    }
+
+                    &:hover {
+                        background-color: $color2;
+                    }
+
+                    &::after {
+                        left: 15px;
+                        right: unset;
+                        transition: right 0.3s ease-in-out;
+                    }
+                }
+            }
+
+            .submit {
+                margin: 0;
+                border-left: none;
+                width: 50%;
+                padding-left: 7px;
+                button {
+                    background-color: $color1;
+                    border-radius: 50px;
+                    transition: background-color 0.3s ease-in-out;
+                    width: 100%;
+                    &:hover {
+                        background-color: $color2;
+                    }
+                    &::after {
+                        background-color: transparent;
+                        text-align: center;
+                        top: 50%;
+                        left: 50%;
+                        height: auto;
+                        width: 100%;
+                        transform: translate(-50%, -50%);
+                        content: "Valider";
+                        text-transform: capitalize;
+                        color: white;
+                        font-size: 1.1rem;
+                        line-height: 150%;
+                        font-family: $font2;
+                        font-weight: 300;
+                    }
+                    &::before {
+                        right: 10px;
+                        left: unset;
+                        transition: right 0.3s ease-in-out;
+                    }
+                }
+            }
+        }
+
+        .ss-center {
+            width: 100%;
+            padding: 0;
+            margin-bottom: 15px;
+            border-right: none;
+        }
+
+        .email,
+        .prenom,
+        .nom {
+            padding: 0;
+            width: 100%;
+        }
+
+        .nom {
+            margin-bottom: 15px;
         }
     }
 }

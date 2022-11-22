@@ -20,6 +20,7 @@ nav {
 
     &.on {
         pointer-events: all;
+
         .nav-bg {
             background-color: $color2;
             transition: opacity .5s ease-in-out;
@@ -57,12 +58,14 @@ nav {
     ul {
         display: flex;
         flex-direction: column;
+
         li {
             overflow: hidden;
             display: flex;
             align-items: center;
             flex-direction: row;
             position: relative;
+
             &:not(:last-child) {
                 margin-bottom: 25px;
             }
@@ -70,6 +73,7 @@ nav {
             div {
                 overflow: hidden;
                 margin-right: 25px;
+
                 span {
                     display: inline-block;
                     font-family: $font3;
@@ -78,7 +82,7 @@ nav {
                     font-size: 25px;
                     line-height: 150%;
                     color: white;
-                    transform: translate(0,100%);
+                    transform: translate(0, 100%);
                 }
             }
         }
@@ -104,4 +108,76 @@ nav {
         }
     }
 
+    @media all and (max-width: 768px) {
+        .nav-wrapper {
+            padding: 0 25px;
+        }
+
+        .nav-wrapper-r {
+            display: none;
+        }
+
+        .nav-wrapper-l {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        ul {
+            li {
+                width: fit-content;
+
+                div {
+                    margin-right: 15px;
+
+                    span {
+                        font-size: 20px;
+                    }
+                }
+            }
+
+            a {
+                font-size: 50px;
+            }
+        }
+    }
+
+    @media all and (max-width: 500px) {
+        .nav-wrapper {
+            padding: 0 20px;
+        }
+        ul {
+            li {
+                div {
+                    margin-right: 15px;
+
+                    span {
+                        font-size: 15px;
+                    }
+                }
+            }
+
+            a {
+                font-size: 40px;
+            }
+        }
+    }
+    @media all and (max-width: 360px) {
+        ul {
+            li {
+                div {
+                    margin-right: 15px;
+
+                    span {
+                        font-size: 15px;
+                    }
+                }
+            }
+
+            a {
+                font-size: 30px;
+            }
+        }
+    }
 }
