@@ -4,19 +4,22 @@ namespace App\Http\Requests;
 
 use App\Models\Booking;
 use App\Enums\BookingStatus;
+use Illuminate\Support\Carbon;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\ValidationException;
 
 class StoreBookingRequest extends FormRequest
 {
+
     /**
-     * Determine if the user is authorized to make this request.
+     * Prepare the data for validation.
      *
-     * @return bool
+     * @return void
      */
-    public function authorize()
+    protected function prepareForValidation()
     {
-        return true;
+        $this['start'] = Carbon::parse($this['start'])->toDateTimeString();
+        $this['end'] = Carbon::parse($this['end'])->toDateTimeString();
     }
 
     /**
