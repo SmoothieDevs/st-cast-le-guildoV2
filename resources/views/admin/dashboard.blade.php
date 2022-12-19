@@ -70,6 +70,12 @@
                     </div>
                     <div class="wrapper-calendar">
                         <input id="datepicker" />
+                        <div class="calendar-legend">
+                            <ul>
+                                <li class="reserved">Jours réservés</li>
+                                <li class="locked">Jours bloqués</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>

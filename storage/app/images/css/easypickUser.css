@@ -1,31 +1,31 @@
 :host {
-  --color-bg-default: white;
-  --color-bg-secondary: white;
-  --color-fg-default: #222828;
+  --color-bg-default: #222828;
+  --color-bg-secondary: #222828;
+  --color-fg-default: white;
   --color-fg-primary: #3A8480;
   --color-fg-secondary: #748194;
-  --color-fg-selected: #222828;
+  --color-fg-selected: #fff;
   --color-fg-muted: #3A8480;
   --color-fg-accent: #e63757;
-  --color-btn-primary-bg: #222828;
+  --color-btn-primary-bg: #fff;
   --color-btn-primary-fg: #3A8480;
   --color-btn-primary-border: #3A8480;
   --color-btn-primary-hover-bg: #3A8480;
-  --color-btn-primary-hover-fg: #222828;
+  --color-btn-primary-hover-fg: #fff;
   --color-btn-primary-hover-border: #3A8480;
   --color-btn-primary-disabled-bg: #3A8480;
-  --color-btn-primary-disabled-fg: #222828;
+  --color-btn-primary-disabled-fg: #fff;
   --color-btn-primary-disabled-border: #3A8480;
-  --color-btn-secondary-bg: #222828;
+  --color-btn-secondary-bg: #fff;
   --color-btn-secondary-fg: #748194;
   --color-btn-secondary-border: #748194;
   --color-btn-secondary-hover-bg: #748194;
-  --color-btn-secondary-hover-fg: #222828;;
+  --color-btn-secondary-hover-fg: #fff;
   --color-btn-secondary-hover-border: #748194;
   --color-btn-secondary-disabled-bg: #b5bbc4;
-  --color-btn-secondary-disabled-fg: #222828;;
+  --color-btn-secondary-disabled-fg: #fff;
   --color-btn-secondary-disabled-border: #b5bbc4;
-  --color-border-default: #222828;
+  --color-border-default: #ddd;
   --color-border-locked: transparent;
   --day-width: 42px;
   --day-height: 37px;
@@ -237,7 +237,7 @@
   font-weight: 400;
   text-transform: uppercase;
   font-size: 20px;
-  color: #222828;
+  color: white;
 }
 
 .calendar>.header button {
@@ -501,7 +501,7 @@
 
 .container.range-plugin .calendar>.days-grid>.day.end, .container.range-plugin .calendar>.days-grid>.day.start {
   background-color: var(--color-fg-primary);
-  color: white ;
+  color: var(--color-fg-selected)
 }
 
 .container.range-plugin .calendar>.days-grid>.day.start {

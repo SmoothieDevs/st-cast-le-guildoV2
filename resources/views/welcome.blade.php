@@ -30,35 +30,49 @@
     <time class="time"></time>
     <p class="lieu">Saint-Cast-le-Guildo</p>
     <p class="temperature"></p>
-
   </div>
-  <div class="btn-login">
-    <a href="/login">Connexion</a>
+  <div class="tl-wrapper">
+      <div class="btn-resa">
+        <a href="/login">Ma réservation</a>
+      </div>
+      <div class="btn-menu">
+        <div class="menu-text" data-menu="menu" data-close="close"></div>
+        <div class="menu-bar">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
   </div>
-  <div class="btn-menu">
-    <div class="menu-text" data-menu="menu" data-close="close"></div>
-    <div class="menu-bar">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-</div>
   <x-booking-form />
+  <div id="date-selector" class="date-selector">
+    <div class="date-bg"></div>
+    <div class="date-wrapper">
+    <input hidden id="datepicker" />
+    </div>
+  </div>
   <nav>
     <div class="nav-bg"></div>
     <div class="nav-container">
       <div class="nav-wrapper">
         <div class="nav-wrapper-l">
           <ul>
-            <li><div class="link-number"><span>01</span></div><a class="accueil" href="#">Accueil</a></li>
-            <li><div class="link-number"><span>02</span></div><a class="st-cast" href="#section2">St-Cast</a></li>
-            <li><div class="link-number"><span>03</span></div><a class="appartement" href="#section4">Appartement</a></li>
-            <li><div class="link-number"><span>04</span></div><a class="contact" href="#section6">Contact</a></li>
+            <li>
+              <div class="link-number"><span>01</span></div><a class="accueil" href="#">Accueil</a>
+            </li>
+            <li>
+              <div class="link-number"><span>02</span></div><a class="st-cast" href="#section2">St-Cast</a>
+            </li>
+            <li>
+              <div class="link-number"><span>03</span></div><a class="appartement" href="#section4">Appartement</a>
+            </li>
+            <li>
+              <div class="link-number"><span>04</span></div><a class="contact" href="#section6">Contact</a>
+            </li>
           </ul>
         </div>
         <div class="nav-wrapper-r"></div>
       </div>
-
     </div>
   </nav>
 
@@ -81,9 +95,9 @@
           </div>
           <div class="wrapper-right">
             <figure id="figure-1">
-              <img id="item-1" loading="lazy" class="item" data-transform="translate(0px,-200px) rotate(3deg)" src="{{ asset('images/st-cast/St-Cast-section1.1.jpg')}}" alt="Image du port">
-              <img id="item-2" loading="lazy" class="item" data-transform="translate(0px,-200px) rotate(-5deg)" src="{{ asset('images/st-cast/St-Cast-section1.3.jpg')}}" alt="La mer">
-              <img id="item-3" loading="lazy" class="item" data-transform="translate(0px,-200px) rotate(1deg)" src="{{ asset('images/st-cast/St-Cast-section1.2.jpg')}}" alt="la Cote">
+              <img id="item-1" loading="lazy" class="item" data-transform="translate(0,100px) rotate(3deg)" src="{{ asset('images/st-cast/St-Cast-section1.1.jpg')}}" alt="Image du port">
+              <img id="item-2" loading="lazy" class="item" data-transform="translate(-0%,100px) rotate(-5deg)" src="{{ asset('images/st-cast/St-Cast-section1.3.jpg')}}" alt="La mer">
+              <img id="item-3" loading="lazy" class="item" data-transform="translate(-0%,100px) rotate(1deg)" src="{{ asset('images/st-cast/St-Cast-section1.2.jpg')}}" alt="la Cote">
             </figure>
           </div>
         </div>
@@ -155,8 +169,8 @@
         <div class="wrapper">
           <div class="wrapper-left">
             <figure id="figure-2">
-              <img id="item-4" loading="lazy" class="item" data-transform="translate(0,-330px) rotate(2.3deg)" src="{{ asset('images/st-cast/Appartement1.jpg')}}" alt="Image du port">
-              <img id="item-5" loading="lazy" class="item" data-transform="translate(0,-330px) rotate(-9.3deg)" src="{{ asset('images/st-cast/Appartement2.jpg')}}" alt="La mer">
+              <img id="item-4" loading="lazy" class="item" data-transform="translate(0,100px) rotate(2.3deg)" src="{{ asset('images/st-cast/Appartement1.jpg')}}" alt="Image du port">
+              <img id="item-5" loading="lazy" class="item" data-transform="translate(0%,100px) rotate(-9.3deg)" src="{{ asset('images/st-cast/Appartement2.jpg')}}" alt="La mer">
             </figure>
           </div>
           <div class="wrapper-right">
@@ -203,21 +217,17 @@
           </div>
           <div class="wrapper-right">
             <figure id="figure-3">
-              <img id="item-6" loading="lazy" class="item" data-transform="translate(0,-150px) rotate(-2.8deg)" src="{{ asset('images/st-cast/Appartement3.jpg')}}" alt="Image du port">
-              <img id="item-7" loading="lazy" class="item" data-transform="translate(0,-150px) rotate(1deg)" src="{{ asset('images/st-cast/Appartement4.jpg')}}" alt="La mer">
+              <img id="item-6" loading="lazy" class="item" data-transform="translate(0,-100px) rotate(-2.8deg)" src="{{ asset('images/st-cast/Appartement3.jpg')}}" alt="Image du port">
+              <img id="item-7" loading="lazy" class="item" data-transform="translate(-0%,-100px) rotate(1deg)" src="{{ asset('images/st-cast/Appartement4.jpg')}}" alt="La mer">
             </figure>
           </div>
         </div>
     </section>
-    <section id="section6" class="section6" data-color="white">
+    <footer data-color="white">
       <div class="container-s">
         <div class="wrapper">
-          <div class="wrapper-top">
-            <div class="title">
-              <h3>Une question ? Une envie de réserver ?</h3>
-            </div>
-          </div>
           <div class="wrapper-left">
+            <div class="">
             <p class="description">Vous pouvez nous contacter par mail ou par téléphone</p>
           </div>
           <div class="wrapper-right">
@@ -225,9 +235,9 @@
           </div>
         </div>
       </div>
-    </section>
+</footer>
 
-    <footer>
+    <!-- <footer>
       <div class="container">
         <div class="wrapper">
           <div class="title">
@@ -244,7 +254,7 @@
           <p class="copyright">Fait avec <span></span> par Will</p>
         </div>
       </div>
-    </footer>
+    </footer> -->
   </main>
 </body>
 

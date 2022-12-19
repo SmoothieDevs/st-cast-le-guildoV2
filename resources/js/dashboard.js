@@ -17,36 +17,7 @@ document.addEventListener('DOMContentLoaded', function () {
         tl.play();
 
         //////////// Datepicker pour l'utilisateur ////////////
-        // Toutes les dates sont bloquées par défaut. Les seules qui sont autorisées sont les périodes ouvertes par l'admin et qui ne sont pas réservées.
-        // fetch('/api/availabilities')
-        //     .then((response) => response.json())
-        //     .then((data) => {
-        //         const availableRanges = data.data.availabilitiesWithBooked.map(d => [new DateTime(d['from'], 'YYYY-MM-DD'), new DateTime(d['to'], 'YYYY-MM-DD')]);
-        //         const pickerA = new easepick.create({
-        //             element: '#datepicker',
-        //             css: [
-        //                 'images/css/easypick.css'
-        //             ],
-        //             zIndex: 10,
-        //             lang: 'fr-FR',
-        //             format: 'DD MMM YYYY',
-        //             grid: 2,
-        //             calendars: 2,
-        //             inline: true,
-        //             plugins: [
-        //                 AmpPlugin,
-        //                 RangePlugin,
-        //                 LockPlugin
-        //             ],
-        //             LockPlugin: {
-        //                 minDate: new Date(),
-        //                 inseparable: true,
-        //                 filter(date, picked) {
-        //                     return !date.inArray(availableRanges);
-        //                 },
-        //             }
-        //         })
-        //     });
+
 
         //////////// Datepicker pour l'admin ////////////
         // Affichage des périodes marquées disponibles et des périodes réservées pour autorisation/bloquage des dates
@@ -81,15 +52,12 @@ document.addEventListener('DOMContentLoaded', function () {
                     setup(picker) {
                         picker.on('view', (evt) => {
                             const { view, date, target } = evt.detail;
-
                             if (view === 'CalendarDay' && !date.inArray(availableRanges) && !target.classList.contains('not-available')) {
-                                target.style.backgroundColor = 'tomato';
-                                target.style.color = 'black';
+                                target.style.color = 'orange';
                             }
                         });
                     }
                 })
-            });
-
+            })
     }
 });

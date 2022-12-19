@@ -19,13 +19,14 @@ section.section1 {
         justify-content: center;
     }
 
-    .title{
+    .title {
         margin-bottom: 30px;
     }
 
-    .description{
+    .description {
         max-width: 500px;
-        p{
+
+        p {
             font-style: italic;
         }
     }
@@ -33,36 +34,98 @@ section.section1 {
     .wrapper-right {
         width: 50%;
         padding-left: 20px;
+
         figure {
             position: relative;
             z-index: 55;
         }
+
         .item {
             overflow: hidden;
-            position: relative;
             &#item-1 {
-                max-width: 600px;
+                max-width: 80%;
                 height: auto;
-                bottom: -60px;
-                transform: translate(0px,40%) rotate(-9deg);
+                margin: 0 auto;
+                transform: translate(0,0) rotate(-9deg);
             }
 
             &#item-2 {
                 position: absolute;
-                max-width: 300px;
+                max-width: 30%;
                 height: auto;
-                right: 50px;
-                bottom: -90px;
-                transform: translate(0px,100%) rotate(15deg);
+                right: 0%;
+                top: 80%;
+                transform: translate(-0%,-50%) rotate(12deg);
             }
 
             &#item-3 {
                 position: absolute;
-                max-width: 455px;
+                max-width: 45%;
                 height: auto;
-                left: -180px;
-                bottom: -120px;
-                transform: translate(0,60%) rotate(-12deg);
+                left: 0;
+                top: 80%;
+                transform: translate(-0%,-50%) rotate(-15deg);
+            }
+        }
+    }
+
+    @media all and (max-width: 768px) {
+        padding-top: 150px;
+        padding-bottom: 50px;
+        .wrapper {
+            flex-direction: column;
+        }
+
+        .wrapper-left {
+            width: 100%;
+            padding-right: 0;
+            order: 3;
+            margin-top: 170px;
+        }
+
+        .title {
+            * {
+                font-size: 35px;
+            }
+        }
+
+        .description {
+            max-width: 500px;
+
+            p {
+                font-style: italic;
+            }
+        }
+
+        .wrapper-right {
+            width: 100%;
+            padding: 0px 15px;
+            margin-top: 50px;
+            .item {
+                &#item-1 {
+                    max-width: 80%;
+                    height: auto;
+                    margin: 0 auto;
+                    transform: translate(0,0) rotate(-9deg);
+                }
+    
+                &#item-2 {
+                    position: absolute;
+                    max-width: 30%;
+                    height: auto;
+                    right: 0%;
+                    top: 70%;
+                    transform: translate(-0%,-50%) rotate(12deg);
+                }
+    
+                &#item-3 {
+                    position: absolute;
+                    max-width: 45%;
+                    height: auto;
+                    left: 0;
+                    top: 90%;
+                    transform: translate(-0%,-50%) rotate(-15deg);
+                }
             }
         }
     }

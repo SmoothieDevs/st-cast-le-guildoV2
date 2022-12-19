@@ -21,6 +21,20 @@ body {
         .station {
             color: $color2;
             transition: color ease-in-out .5s;
+
+            .lieu,
+            .temperature {
+                border-color: $color2;
+                transition: border-color ease-in-out .5s;
+            }
+        }
+
+        .btn-resa {
+            border-color: $color2;
+
+            a {
+                color: $color2;
+            }
         }
 
         .btn-menu {
@@ -32,19 +46,18 @@ body {
                 }
             }
         }
-
-
     }
 
     &.fixed {
         .main-logo {
             top: 50px;
+
             a {
-                div.sup { 
+                div.sup {
                     font-size: 30px;
                 }
 
-                div.sub { 
+                div.sub {
                     font-size: 18px;
                 }
             }
@@ -76,9 +89,8 @@ body {
     z-index: 1;
     width: 100%;
 
-    .btn-logout-w{
+    .btn-logout-w {
         pointer-events: all;
-        
         border: none;
         outline: 0;
         background: none;
@@ -90,10 +102,45 @@ body {
         right: 6.5rem;
         top: 3rem;
         font-size: 13px;
-        font-weight: 550;
+        font-weight: 500;
         line-height: 16px;
         color: $color2;
         font-family: $font2;
+    }
+
+    .tl-wrapper {
+        opacity: 0;
+        pointer-events: all;
+        cursor: pointer;
+        border: none;
+        outline: 0;
+        background: none;
+        position: fixed;
+        display: flex;
+        align-items: center;
+        z-index: 999;
+        right: 6.5rem;
+        top: 3rem;
+    }
+
+    .btn-resa {
+        display: inline-flex;
+        align-items: center;
+        padding-right: 10px;
+        margin-right: 5px;
+        transition: border ease-in-out .5s;
+        border-right: solid white 1px;
+
+        a {
+            outline: 0;
+            text-transform: uppercase;
+            font-size: 12px;
+            font-weight: 500;
+            line-height: 16px;
+            transition: color ease-in-out .5s;
+            color: white;
+            font-family: $font2;
+        }
     }
 
     .btn-menu {
@@ -103,15 +150,12 @@ body {
         outline: 0;
         background: none;
         text-transform: uppercase;
-        position: fixed;
         transition: color ease-in-out .5s;
         display: inline-flex;
         align-items: center;
         z-index: 999;
-        right: 6.5rem;
-        top: 3rem;
         font-size: 12px;
-        font-weight: 550;
+        font-weight: 500;
         line-height: 16px;
         color: white;
         font-family: $font2;
@@ -298,7 +342,7 @@ body {
         text-transform: uppercase;
         position: fixed;
         font-size: 12px;
-        font-weight: 550;
+        font-weight: 500;
         line-height: 16px;
         opacity: 0;
         z-index: 999;
@@ -309,9 +353,12 @@ body {
 
         .lieu {
             font-size: 12px;
-            font-weight: 550;
+            font-weight: 500;
             line-height: 16px;
-
+            padding-left: 10px;
+            margin-left: 10px;
+            border-left: solid white 1px;
+            transition: border-color ease-in-out .5s;
         }
 
         .time {
@@ -326,6 +373,12 @@ body {
         }
 
         .temperature {
+
+            padding-left: 10px;
+            margin-left: 10px;
+            border-left: solid white 1px;
+            transition: border-color ease-in-out .5s;
+
             span {
                 transform: translate3d(0, -10px, 0);
                 font-size: 12px;
@@ -335,27 +388,64 @@ body {
                 padding-right: 0.5rem;
             }
         }
-        @media all and (max-width: 768px) {
-            top: 2rem;
+
+
+    }
+
+    @media all and (max-width: 1000px) {
+        .station {
             left: 2rem;
         }
-        @media all and (max-width: 576px) {
-            
-            .temperature{
+
+        .tl-wrapper {
+            right: 2rem;
+        }
+
+    }
+
+    @media all and (max-width: 768px) {
+        .station {
+            .lieu,.temperature,.time {
                 display: none;
             }
-            .lieu{
-                display: none;
+            .btn-resa{
+                border: none;
             }
-            .time {
-                span {
-                    display: none;
+        }
+
+        .main-logo {
+            a {
+                div.sup {
+                    font-size: 40px;
+                    .char {
+                        display: inline-block;
+                        font-family: $font1;
+                        letter-spacing: 0em;
+                        text-align: center;
+                        transform: translate(0, 100%);
+                        transition: color ease-in-out .5s;
+                    }
+                }
+
+                div.sub {
+                    overflow: hidden;
+                    font-size: 30px;
+                    line-height: 110%;
+                    font-weight: 500;
+
+                    .char {
+                        display: inline-block;
+                        font-family: $font1;
+                        transform: translate(0, 100%);
+                        letter-spacing: 0em;
+                        text-align: center;
+                        transition: color ease-in-out .5s;
+                    }
                 }
             }
         }
     }
 }
-
 
 .main-page {
     overflow: hidden;
