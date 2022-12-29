@@ -16,9 +16,6 @@ document.addEventListener('DOMContentLoaded', function () {
             .to('.main-logo .sub .char', { y: 0, stagger: .08, duration: 1, delay: 1.5, ease: 'power1.inOut' }, 'start');
         tl.play();
 
-        //////////// Datepicker pour l'utilisateur ////////////
-
-
         //////////// Datepicker pour l'admin ////////////
         // Affichage des périodes marquées disponibles et des périodes réservées pour autorisation/bloquage des dates
         fetch('/api/availabilities')
@@ -59,5 +56,13 @@ document.addEventListener('DOMContentLoaded', function () {
                     }
                 })
             })
+    }
+    if (document.getElementById('user-dashboard')) {
+        const charSplit = Splitting({ by: 'chars' });
+        //////////// Navigation Apparition ////////////
+        let tl = gsap.timeline({ paused: true }).to('.station', { opacity: 1, y: 0, duration: 1, delay: 1, ease: 'power1.inOut' }, 'start')
+            .to('.main-logo .sup .char', { y: 0, stagger: .08, duration: 1, delay: 1, ease: 'power1.inOut' }, 'start')
+            .to('.main-logo .sub .char', { y: 0, stagger: .08, duration: 1, delay: 1.5, ease: 'power1.inOut' }, 'start');
+        tl.play();
     }
 });

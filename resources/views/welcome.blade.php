@@ -22,8 +22,8 @@
       <a href="/">
         <div data-splitting class="sup">Cézembre</div>
         <div data-splitting class="sub">Le Guildo</div>
+        </a>
     </h1>
-    </a>
   </div>
   <div class="station">
     <span class="icon"></span>
