@@ -1,7 +1,6 @@
 
-/*import { gsap } from "gsap";
+/*
 import { Flip } from "gsap/Flip";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Observer } from "gsap/Observer";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import { Draggable } from "gsap/Draggable";
@@ -23,7 +22,6 @@ import "./section2";
 import "./login";
 import "./dashboard";
 gsap.registerPlugin(ScrollTrigger);
-
 
 document.addEventListener("DOMContentLoaded", function () {
 

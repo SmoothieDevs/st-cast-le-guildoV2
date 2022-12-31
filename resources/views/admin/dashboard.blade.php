@@ -13,27 +13,26 @@
 </head>
 
 <body class="black fixed">
-    <div class="loader">
-        <div class="wrapper">
-            <div class="icon"></div>
-            <p>Chargement...</p>
-        </div>
+<div class="loader">
+    <div class="wrapper">
+      <div class="icon"></div>
+      <p>Chargement...</p>
     </div>
-    <div class="main-logo">
-        <h1>
-            <a href="/">
-                <div data-splitting class="sup">Cézembre</div>
-                <div data-splitting class="sub">Le Guildo</div>
-        </h1>
+  </div>
+  <div class="main-logo">
+    <h1>
+      <a href="/">
+        <div data-splitting class="sup">Cézembre</div>
+        <div data-splitting class="sub">Le Guildo</div>
         </a>
-    </div>
-    <div class="station">
-        <span class="icon"></span>
-        <time class="time"></time>
-        <p class="lieu">Saint-Cast-le-Guildo</p>
-        <p class="temperature"></p>
-
-    </div>
+    </h1>
+  </div>
+  <div class="station">
+    <span class="icon"></span>
+    <time class="time"></time>
+    <p class="lieu">Saint-Cast-le-Guildo</p>
+    <p class="temperature"></p>
+  </div>
     <div class="btn-logout-w">
         <p>Admin&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</p>
         <form method="POST" action="{{ route('logout') }}" style="display: inline;">
