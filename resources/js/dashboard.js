@@ -21,6 +21,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
         //////////// Datepicker pour l'admin ////////////
         // Affichage des périodes marquées disponibles et des périodes réservées pour autorisation/bloquage des dates
+        let inputDateFrom = document.querySelector("input#from");
+        let inputDateTo = document.querySelector("input#to");
+        let inputType = document.querySelector("input#type");
+        let buttonLock = document.querySelector("button#lock");
+        let buttonUnlock = document.querySelector("button#unlock");
+        let dateManagerForm = document.getElementById('dateManagerForm');
+
         fetch('/api/availabilities')
             .then((response) => response.json())
             .then((data) => {
@@ -56,8 +63,33 @@ document.addEventListener('DOMContentLoaded', function () {
                                 target.style.color = 'orange';
                             }
                         });
+                        picker.on('select', (evt) => {
+                            inputDateFrom.value = evt.detail.start.format('DD MMM. YYYY');
+                            inputDateTo.value = evt.detail.end.format('DD MMM. YYYY');
+                        });
                     }
                 })
             })
+
+        buttonLock.addEventListener('click', (e) => {
+            e.preventDefault();
+            if (inputDateFrom.value === '' || inputDateTo.value === '') {
+                alert('Veuillez sélectionner une période');
+            } else if (confirm('Voulez-vous vraiment bloquer ces dates ?')) {
+                inputType.value = 'unavailable';
+                dateManagerForm.submit();
+            }
+        });
+
+        buttonUnlock.addEventListener('click', (e) => {
+            e.preventDefault();
+            if (inputDateFrom.value === '' || inputDateTo.value === '') {
+                alert('Veuillez sélectionner une période');
+            } else if (confirm('Voulez-vous vraiment débloquer ces dates ?')) {
+                inputType.value = 'available';
+                dateManagerForm.submit();
+            }
+        });
+
     }
 });

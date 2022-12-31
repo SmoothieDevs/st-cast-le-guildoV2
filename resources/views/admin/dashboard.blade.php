@@ -52,7 +52,8 @@
                 <div class="wrapper-dashboard">
                     <div class="wrapper-numbers">
                         <div class="key-number">
-                            <p class="number">{{ $bookings->where('status', \App\Enums\BookingStatus::Validated)->count() }}</p>
+                            <p class="number">{{ $bookings->where('status',
+                                \App\Enums\BookingStatus::Validated)->count() }}</p>
                             <p class="key">Réservations</p>
                         </div>
                         <div class="key-number">
@@ -60,7 +61,8 @@
                             <p class="key">Jours disponibles</p>
                         </div>
                         <div class="key-number">
-                            <p class="number">{{ $bookings->where('status', \App\Enums\BookingStatus::PendingConfirmation)->count() }}</p>
+                            <p class="number">{{ $bookings->where('status',
+                                \App\Enums\BookingStatus::PendingConfirmation)->count() }}</p>
                             <p class="key">Réservations en attentes</p>
                         </div>
                         <div class="key-number">
@@ -69,13 +71,21 @@
                         </div>
                     </div>
                     <div class="wrapper-calendar">
-                        <input id="datepicker" />
-                        <div class="calendar-legend">
-                            <ul>
-                                <li class="reserved">Jours réservés</li>
-                                <li class="locked">Jours bloqués</li>
-                            </ul>
-                        </div>
+                        <form id="dateManagerForm" action="{{ route('availability.store') }}" method="post">
+                            @csrf
+                            <input id="datepicker" />
+                            <input type="hidden" name="from" id="from" required />
+                            <input type="hidden" name="to" id="to" required />
+                            <input type="hidden" name="type" id="type" required />
+                            <div class="calendar-legend">
+                                <ul>
+                                    <li class="reserved">Jours réservés</li>
+                                    <li class="locked">Jours bloqués</li>
+                                </ul>
+                            </div>
+                            <button type="button" id="lock">Bloquer les dates</button>
+                            <button type="button" id="unlock">Débloquer les dates</button>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -102,7 +112,8 @@
                             <td>{{ $booking->start->isoFormat('Do MMM YYYY') }}</td>
                             <td>{{ $booking->end->isoFormat('Do MMM YYYY') }}</td>
                             <td>{{ $booking->nb_people }}</td>
-                            <td class="{{ str_replace('-', ' ', strtolower($booking->status->label())) }}">{{ $booking->status->label() }}</td>
+                            <td class="{{ str_replace('-', ' ', strtolower($booking->status->label())) }}">{{
+                                $booking->status->label() }}</td>
                             <td>
                                 @if(isset($booking->actions))
                                 @foreach ($booking->actions as $value => $action)
