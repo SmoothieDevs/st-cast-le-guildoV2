@@ -52,15 +52,15 @@
                 <div class="wrapper-dashboard">
                     <div class="wrapper-numbers">
                         <div class="key-number">
-                            <p class="number">30</p>
+                            <p class="number">{{ $bookings->where('status', \App\Enums\BookingStatus::Validated)->count() }}</p>
                             <p class="key">Réservations</p>
                         </div>
                         <div class="key-number">
-                            <p class="number">158</p>
+                            <p class="number">{{ $nbAvailableDays }}</p>
                             <p class="key">Jours disponibles</p>
                         </div>
                         <div class="key-number">
-                            <p class="number">2</p>
+                            <p class="number">{{ $bookings->where('status', \App\Enums\BookingStatus::PendingConfirmation)->count() }}</p>
                             <p class="key">Réservations en attentes</p>
                         </div>
                         <div class="key-number">

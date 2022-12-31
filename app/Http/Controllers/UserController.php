@@ -5,13 +5,15 @@ namespace App\Http\Controllers;
 use App\Models\Booking;
 use App\Enums\BookingStatus;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
+use App\Models\BookingAvailability;
 use App\Http\Resources\BookingResource;
 
 class UserController extends Controller
 {
     /**
      * Affiche la page personnelle de l'utilisateur
-     * 
+     *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\View\View
      */
@@ -28,8 +30,17 @@ class UserController extends Controller
                     ];
                 }
             }
-            
-            return view('admin.dashboard')->with('bookings', BookingResource::collection($bookings));
+
+            $nbAvailableDays = 0;
+            foreach (BookingAvailability::getAvailableDates()['availabilitiesWithBooked'] as $availability) {
+                $nbAvailableDays += Carbon::parse($availability['from'])
+                    ->diffInDays(Carbon::parse($availability['to'])) + 1;
+            }
+
+            return view('admin.dashboard')->with([
+                'bookings' => BookingResource::collection($bookings),
+                'nbAvailableDays' => $nbAvailableDays,
+            ]);
         } else {
             $booking =  auth()->user()->booking;
             $finishedBookings = auth()->user()->finishedBookings;
